@@ -1,84 +1,282 @@
+
+
 <!DOCTYPE html>
-<html lang="en-us">
-	<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Quants R Us">
-<meta name="description" content="A blog on quantitative finance">
-<meta name="generator" content="Hugo 0.93.3" />
-<title>Efficient Finite Difference Grid Stretching for Finance</title>
-<link rel="shortcut icon" href="https://quantsrus.github.io/images/favicon.ico">
-<link rel="stylesheet" href="https://quantsrus.github.io/css/style.css">
-<link rel="stylesheet" href="https://quantsrus.github.io/css/highlight.css">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
 
-<link rel="stylesheet" href="https://quantsrus.github.io/override.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<link rel="stylesheet" href="https://quantsrus.github.io/syntax.css">
+ 
 
 
+      <title>Efficient Finite Difference Grid Stretching for Finance - </title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-
-
-
-<link href="https://quantsrus.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Quants R Us" />
+  <meta name="description" content="Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed.">
+  <meta name="author" content="Jherek Healy"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Quants R Us",
+    
+    "url": "https:\/\/quantsrus.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/quantsrus.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/quantsrus.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/quantsrus.github.io\/post\/efficient_finite_difference_grid_stretching\/",
+          "name": "Efficient finite difference grid stretching for finance"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Jherek Healy"
+  },
+  "headline": "Efficient Finite Difference Grid Stretching for Finance",
+  "description" : "Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed.",
+  "inLanguage" : "en",
+  "wordCount":  574 ,
+  "datePublished" : "2022-08-28T21:50:22\u002b02:00",
+  "dateModified" : "2022-08-28T21:50:22\u002b02:00",
+  "image" : "https:\/\/quantsrus.github.io\/images\/avatar@2x.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/quantsrus.github.io\/post\/efficient_finite_difference_grid_stretching\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/quantsrus.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/quantsrus.github.io\/images\/avatar@2x.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
 
 <meta property="og:title" content="Efficient Finite Difference Grid Stretching for Finance" />
-<meta property="og:description" content="Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://quantsrus.github.io/post/efficient_finite_difference_grid_stretching/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-08-28T21:50:22+02:00" />
-<meta property="article:modified_time" content="2022-08-28T21:50:22+02:00" />
+<meta property="og:description" content="Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed.">
+<meta property="og:image" content="https://quantsrus.github.io/images/avatar@2x.png" />
+<meta property="og:url" content="https://quantsrus.github.io/post/efficient_finite_difference_grid_stretching/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Quants R Us" />
 
+  <meta name="twitter:title" content="Efficient Finite Difference Grid Stretching for Finance" />
+  <meta name="twitter:description" content="Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. …">
+  <meta name="twitter:image" content="https://quantsrus.github.io/images/avatar@2x.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@JherekHealy" />
+  <meta name="twitter:creator" content="@JherekHealy" />
+  <link href='https://quantsrus.github.io/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.156.0">
+  <link rel="alternate" href="https://quantsrus.github.io/index.xml" type="application/rss+xml" title="Quants R Us"><link rel="stylesheet" href="https://quantsrus.github.io/css/katex.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/brands.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/regular.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/svg.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/svg-with-js.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/v4-font-face.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/v4-shims.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/v5-font-face.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/css/bootstrap.min.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/main.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/fonts.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/syntax.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/photoswipe.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/css/photoswipe.default-skin.min.css" />
 
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://quantsrus.github.io/">Quants R Us</a>
+    </div>
 
-<meta itemprop="name" content="Efficient Finite Difference Grid Stretching for Finance">
-<meta itemprop="description" content="Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed."><meta itemprop="datePublished" content="2022-08-28T21:50:22+02:00" />
-<meta itemprop="dateModified" content="2022-08-28T21:50:22+02:00" />
-<meta itemprop="wordCount" content="574">
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Efficient Finite Difference Grid Stretching for Finance"/>
-<meta name="twitter:description" content="Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed."/>
-<meta name="twitter:site" content="@https://twitter.com/JherekHealy"/>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="My book" href="http://jherekhealy.github.io/">My book</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
 
+        
 
-    </head>
-<body>
-    <nav class="main-nav">
-	
-		<a href='https://quantsrus.github.io/'> <span class="arrow">←</span>Home</a>
-	
+        
+      </ul>
+    </div>
 
-	
- 		<a href='http://jherekhealy.github.io/'>My book</a>
-  	
- 		<a href='/about/'>About</a>
-  	
- 		<a href='/archive/'>Archive</a>
-  	
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Quants R Us" href="https://quantsrus.github.io/">
+            <img class="avatar-img" src="https://quantsrus.github.io/images/avatar@2x.png" alt="Quants R Us" />
+           
+          </a>
+        </div>
+      </div>
+    
 
-	
-		<a class="cta" href="https://quantsrus.github.io/index.xml">Subscribe</a>
-	
+  </div>
 </nav>
 
-    <section id="wrapper">
-        
-        
-<article class="post">
-    <header>
-        <h1>Efficient Finite Difference Grid Stretching for Finance</h1>
-        <h2 class="subtitle">Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed.</h2>
-        <h2 class="headline">
-        August 28, 2022
-        <br>
-        
-        </h2>
-    </header>
-    <section id="post-body">
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Efficient Finite Difference Grid Stretching for Finance</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 28, 2022
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <p>Partial differential equations sometimes have critical points where the solution or some of its derivatives are discontinuous. The simplest example is a discontinuity in the initial condition. It is well known that those decrease the accuracy of finite difference methods. A common remedy is to stretch the grid, such that many more grid points are present near the critical points, and fewer where the solution is deemed smooth. An alternative solution is to insert points such that the discontinuities fall in the middle of two grid points.</p>
 <p>This situation arises in the pricing of nearly all financial derivative contracts. The vanilla European option of given maturity and strike price, the simplest non-linear contract, has indeed a discontinuous first derivative at the strike price. Barriers with a discrete monitoring schedule are also a very common feature in more exotic contracts. Those create a discontinuity at the barrier level.</p>
 <p>Tavella and Randall propose two solutions to improve the convergence somewhat significantly:</p>
@@ -90,237 +288,322 @@
 <p>I explore those questions in a new paper <a href="https://arxiv.org/abs/2210.02541">Inserting or Stretching Points in Finite Difference Discretizations</a>. It is found that the approach of Tavella and Randall allow to increase the accuracy reliably and significantly, using concrete examples in finance, while insertion may still be an interesting straightforward alternative to apply on top of a stretched grid.</p>
 <p>There is however a practical issue with Tavella and Randall: the stretching is slow, and cumbersome to implement for multiple critical points. Indeed, it involves solving numerically an ODE. The ODE is typically discretized with a fourth-order Runge-Kutta scheme, but the solver may be more challenging to make robust. Is there another kind of stretching with similar properties but that is much faster and simpler to code? The paper details a new piecewise-cubic stretching with those properties.</p>
 <p>The below figure presents how the grid transformation &ldquo;looks&rdquo; compared to the Tavella-Randall approach:
-<figure><img src="/post/stretching_cubic.png"/>
-</figure>
+
+<link rel="stylesheet" href="https://quantsrus.github.io/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/post/stretching_cubic.png" alt="/post/stretching_cubic.png"/>
+    </div>
+    <a href="/post/stretching_cubic.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
 </p>
 <p>In terms of accuracy, the following table summarizes the error (x10000) in the price of the same knock-out barrier option of maturity T=1 year, strike K=150 and barrier B=125,  with 250 discrete observations dates, starting at $$t_1=1/250$$ until $$t_{250}=T=1$$ under the Black-Scholes model with dividend yield q=0.02, interest rate r=0.07 and volatility \sigma=20%, presented in Tables 6.1 and 6.2 of Tavella and Randall book. The main difference with the paper and the book is that below, I use two critical points, one at the strike, one at the barrier level, while the paper and the book use only one critical point at the barrier level.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">Grid type</th>
-<th style="text-align:left">Grid size</th>
-<th style="text-align:right">Uniform</th>
-<th style="text-align:right">Cubic</th>
-<th style="text-align:right">Tavella-Randall</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Raw</td>
-<td style="text-align:left">250</td>
-<td style="text-align:right">5002</td>
-<td style="text-align:right">735</td>
-<td style="text-align:right">783</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">500</td>
-<td style="text-align:right">74</td>
-<td style="text-align:right">173</td>
-<td style="text-align:right">324</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:right">1084</td>
-<td style="text-align:right">113</td>
-<td style="text-align:right">90</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">2000</td>
-<td style="text-align:right">61</td>
-<td style="text-align:right">36</td>
-<td style="text-align:right">32</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">Insertion</td>
-<td style="text-align:left">250</td>
-<td style="text-align:right">320</td>
-<td style="text-align:right">79</td>
-<td style="text-align:right">77</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">500</td>
-<td style="text-align:right">143</td>
-<td style="text-align:right">17</td>
-<td style="text-align:right">19</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:right">29</td>
-<td style="text-align:right">4</td>
-<td style="text-align:right">4</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">2000</td>
-<td style="text-align:right">8</td>
-<td style="text-align:right">1</td>
-<td style="text-align:right">1</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">Deformation</td>
-<td style="text-align:left">250</td>
-<td style="text-align:right">633</td>
-<td style="text-align:right">45</td>
-<td style="text-align:right">51</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">500</td>
-<td style="text-align:right">153</td>
-<td style="text-align:right">11</td>
-<td style="text-align:right">13</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:right">38</td>
-<td style="text-align:right">3</td>
-<td style="text-align:right">3</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:left">2000</td>
-<td style="text-align:right">9</td>
-<td style="text-align:right">0.7</td>
-<td style="text-align:right">0.7</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Grid type</th>
+          <th style="text-align: left">Grid size</th>
+          <th style="text-align: right">Uniform</th>
+          <th style="text-align: right">Cubic</th>
+          <th style="text-align: right">Tavella-Randall</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Raw</td>
+          <td style="text-align: left">250</td>
+          <td style="text-align: right">5002</td>
+          <td style="text-align: right">735</td>
+          <td style="text-align: right">783</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">500</td>
+          <td style="text-align: right">74</td>
+          <td style="text-align: right">173</td>
+          <td style="text-align: right">324</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">1000</td>
+          <td style="text-align: right">1084</td>
+          <td style="text-align: right">113</td>
+          <td style="text-align: right">90</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">2000</td>
+          <td style="text-align: right">61</td>
+          <td style="text-align: right">36</td>
+          <td style="text-align: right">32</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Insertion</td>
+          <td style="text-align: left">250</td>
+          <td style="text-align: right">320</td>
+          <td style="text-align: right">79</td>
+          <td style="text-align: right">77</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">500</td>
+          <td style="text-align: right">143</td>
+          <td style="text-align: right">17</td>
+          <td style="text-align: right">19</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">1000</td>
+          <td style="text-align: right">29</td>
+          <td style="text-align: right">4</td>
+          <td style="text-align: right">4</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">2000</td>
+          <td style="text-align: right">8</td>
+          <td style="text-align: right">1</td>
+          <td style="text-align: right">1</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Deformation</td>
+          <td style="text-align: left">250</td>
+          <td style="text-align: right">633</td>
+          <td style="text-align: right">45</td>
+          <td style="text-align: right">51</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">500</td>
+          <td style="text-align: right">153</td>
+          <td style="text-align: right">11</td>
+          <td style="text-align: right">13</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">1000</td>
+          <td style="text-align: right">38</td>
+          <td style="text-align: right">3</td>
+          <td style="text-align: right">3</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: left">2000</td>
+          <td style="text-align: right">9</td>
+          <td style="text-align: right">0.7</td>
+          <td style="text-align: right">0.7</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p>Insertion looks good, but this is highly dependent on the grid size, here is an excerpt from a relevant Figure from the paper that illustrates this point:
-<figure><img src="/post/stretching_cubic_accuracy.png"/>
-</figure>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/post/stretching_cubic_accuracy.png" alt="/post/stretching_cubic_accuracy.png"/>
+    </div>
+    <a href="/post/stretching_cubic_accuracy.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
 </p>
 <p>The <a href="https://arxiv.org/abs/2210.02541">paper on arxiv</a>.</p>
 
-    </section>
-</article>
 
-<footer id="post-meta" class="clearfix">
-    <a href="https://twitter.com/JherekHealy">
-    <img class="avatar" src="https://quantsrus.github.io/images/avatar.png">
-    <div>
-        <span class="dark">Quants R Us</span>
-        <span>I am Jherek Healy.</span>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f&amp;text=Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance&amp;via=JherekHealy" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f&amp;title=Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f&amp;title=Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f&amp;title=Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f&amp;description=Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f&amp;subject=Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://quantsrus.github.io/post/klein_sum_and_monte_carlo_statistics/" data-toggle="tooltip" data-placement="top" title="Klein summation and Monte-Carlo simulations">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://quantsrus.github.io/post/open_source_quality/" data-toggle="tooltip" data-placement="top" title="Open Source Quality">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
     </div>
-    </a>
-    <section id="sharing">
-        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fquantsrus.github.io%2fpost%2fefficient_finite_difference_grid_stretching%2f - Efficient%20Finite%20Difference%20Grid%20Stretching%20for%20Finance by @JherekHealy"><span class="icon-twitter"> tweet</span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
-
-    </section>
-</footer>
-
-
-
-<ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/klein_sum_and_monte_carlo_statistics/">Klein summation and Monte-Carlo simulations<aside class="dates">Aug 28 2022</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/exp_b_spline_collocation_autodiff/">Exponential B-Spline Collocation and Julia Automatic Differentiation<aside class="dates">Oct 12 2021</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/cos_method_go_julia/">The Cos Method, Go and Julia<aside class="dates">Jan 18 2021</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/implied_volatility_algorithms_go_julia/">The Fastest Implied Volatility Algorithms, Go vs. Julia<aside class="dates">Dec 2 2020</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/why_did_i_choose_the_go_language/">Why did I choose the Go language?<aside class="dates">Jul 17 2019</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/rbf_collocation_of_2d_pde_and_precision/">Julia and Python for the RBF collocation of a 2D PDE with multiple precision arithmetic<aside class="dates">May 24 2019</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/constraints-in-levenberg-marquardt-least-squares-optimization/">Constraints in the Levenberg-Marquardt least-squares optimization<aside class="dates">Oct 8 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/state_of_convex_quadratic_programming_solvers/">The state of open-source quadratic programming convex optimizers<aside class="dates">Jul 24 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/staying-arbitrage-free-with-andreasen-huge-volatility-interpolation/">Staying arbitrage-free with Andreasen-Huge one-step interpolation<aside class="dates">Mar 8 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/on-the-quality-of-research-publications/">On the Quality of Research Publications<aside class="dates">Feb 28 2018</aside></a>
-        </li>
-    
-</ul>
-
-
-
-        <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://twitter.com/JherekHealy">
-        <i class="fa fa-twitter"></i>
-    </a>
-    
-
-
+  </div>
 </div>
 
+      <footer>
+  <div class="container">
     
-    <p class="small">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:jherekhealy@protonmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/JherekHealy" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/jherek-healy-10bb08154" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://jherekhealy.github.io">Jherek Healy</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://quantsrus.github.io/">Quants R Us</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://quantsrus.github.io/js/katex.min.js"></script>
+<script defer src="https://quantsrus.github.io/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script src="https://quantsrus.github.io/js/jquery-3.7.0.slim.min.js"></script>
+<script src="https://quantsrus.github.io/js/bootstrap.min.js"></script>
+
+<script src="https://quantsrus.github.io/js/main.js"></script><script src="https://quantsrus.github.io/js/photoswipe.min.js"></script>
+<script src="https://quantsrus.github.io/js/photoswipe-ui-default.min.js"></script><script src="https://quantsrus.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
     
-       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> Quants R Us
-    
-    </p>
-</footer>
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-    </section>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://quantsrus.github.io/js/main.js"></script>
-
-
-
-
-
-
-</body>
+  </body>
 </html>
+

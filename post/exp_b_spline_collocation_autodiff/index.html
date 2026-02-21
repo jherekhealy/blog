@@ -1,84 +1,282 @@
+
+
 <!DOCTYPE html>
-<html lang="en-us">
-	<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Quants R Us">
-<meta name="description" content="A blog on quantitative finance">
-<meta name="generator" content="Hugo 0.93.3" />
-<title>Exponential B-Spline Collocation and Julia Automatic Differentiation</title>
-<link rel="shortcut icon" href="https://quantsrus.github.io/images/favicon.ico">
-<link rel="stylesheet" href="https://quantsrus.github.io/css/style.css">
-<link rel="stylesheet" href="https://quantsrus.github.io/css/highlight.css">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
 
-<link rel="stylesheet" href="https://quantsrus.github.io/override.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<link rel="stylesheet" href="https://quantsrus.github.io/syntax.css">
+ 
 
 
+      <title>Exponential B-Spline Collocation and Julia Automatic Differentiation - </title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-
-
-
-<link href="https://quantsrus.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Quants R Us" />
+  <meta name="description" content="New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation.">
+  <meta name="author" content="Jherek Healy"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Quants R Us",
+    
+    "url": "https:\/\/quantsrus.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/quantsrus.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/quantsrus.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/quantsrus.github.io\/post\/exp_b_spline_collocation_autodiff\/",
+          "name": "Exponential b spline collocation and julia automatic differentiation"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Jherek Healy"
+  },
+  "headline": "Exponential B-Spline Collocation and Julia Automatic Differentiation",
+  "description" : "New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation.",
+  "inLanguage" : "en",
+  "wordCount":  627 ,
+  "datePublished" : "2021-10-12T21:50:22\u002b02:00",
+  "dateModified" : "2021-10-12T21:50:22\u002b02:00",
+  "image" : "https:\/\/quantsrus.github.io\/images\/avatar@2x.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/quantsrus.github.io\/post\/exp_b_spline_collocation_autodiff\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/quantsrus.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/quantsrus.github.io\/images\/avatar@2x.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
 
 <meta property="og:title" content="Exponential B-Spline Collocation and Julia Automatic Differentiation" />
-<meta property="og:description" content="New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://quantsrus.github.io/post/exp_b_spline_collocation_autodiff/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-10-12T21:50:22+02:00" />
-<meta property="article:modified_time" content="2021-10-12T21:50:22+02:00" />
+<meta property="og:description" content="New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation.">
+<meta property="og:image" content="https://quantsrus.github.io/images/avatar@2x.png" />
+<meta property="og:url" content="https://quantsrus.github.io/post/exp_b_spline_collocation_autodiff/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Quants R Us" />
 
+  <meta name="twitter:title" content="Exponential B-Spline Collocation and Julia Automatic Differentiation" />
+  <meta name="twitter:description" content="New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the …">
+  <meta name="twitter:image" content="https://quantsrus.github.io/images/avatar@2x.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@JherekHealy" />
+  <meta name="twitter:creator" content="@JherekHealy" />
+  <link href='https://quantsrus.github.io/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.156.0">
+  <link rel="alternate" href="https://quantsrus.github.io/index.xml" type="application/rss+xml" title="Quants R Us"><link rel="stylesheet" href="https://quantsrus.github.io/css/katex.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/brands.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/regular.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/svg.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/svg-with-js.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/v4-font-face.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/v4-shims.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/fontawesome/css/v5-font-face.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/css/bootstrap.min.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/main.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/fonts.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/syntax.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://quantsrus.github.io/css/photoswipe.min.css" />
+  <link rel="stylesheet" href="https://quantsrus.github.io/css/photoswipe.default-skin.min.css" />
 
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://quantsrus.github.io/">Quants R Us</a>
+    </div>
 
-<meta itemprop="name" content="Exponential B-Spline Collocation and Julia Automatic Differentiation">
-<meta itemprop="description" content="New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation."><meta itemprop="datePublished" content="2021-10-12T21:50:22+02:00" />
-<meta itemprop="dateModified" content="2021-10-12T21:50:22+02:00" />
-<meta itemprop="wordCount" content="627">
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Exponential B-Spline Collocation and Julia Automatic Differentiation"/>
-<meta name="twitter:description" content="New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation."/>
-<meta name="twitter:site" content="@https://twitter.com/JherekHealy"/>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="My book" href="http://jherekhealy.github.io/">My book</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
 
+        
 
-    </head>
-<body>
-    <nav class="main-nav">
-	
-		<a href='https://quantsrus.github.io/'> <span class="arrow">←</span>Home</a>
-	
+        
+      </ul>
+    </div>
 
-	
- 		<a href='http://jherekhealy.github.io/'>My book</a>
-  	
- 		<a href='/about/'>About</a>
-  	
- 		<a href='/archive/'>Archive</a>
-  	
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Quants R Us" href="https://quantsrus.github.io/">
+            <img class="avatar-img" src="https://quantsrus.github.io/images/avatar@2x.png" alt="Quants R Us" />
+           
+          </a>
+        </div>
+      </div>
+    
 
-	
-		<a class="cta" href="https://quantsrus.github.io/index.xml">Subscribe</a>
-	
+  </div>
 </nav>
 
-    <section id="wrapper">
-        
-        
-<article class="post">
-    <header>
-        <h1>Exponential B-Spline Collocation and Julia Automatic Differentiation</h1>
-        <h2 class="subtitle">New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation.</h2>
-        <h2 class="headline">
-        October 12, 2021
-        <br>
-        
-        </h2>
-    </header>
-    <section id="post-body">
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Exponential B-Spline Collocation and Julia Automatic Differentiation</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 12, 2021
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <p>I <a href="https://github.com/jherekhealy/AQFED.jl/tree/master/src/collocation">just added</a> the exponential B-spline collocation to produce a flexible arbitrage-free interpolation of implied-volatilities to the <a href="https://github.com/jherekhealy/AQFED.jl">book related github repo</a>. I had written the polynomial collocation before, at the request of a reader of my book. The polynomial collocation is often what you will want to use but it has a few drawbacks sometimes:</p>
 <ul>
 <li>It may not always fit well enough given the limited number of free-parameters.</li>
@@ -101,177 +299,262 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">:</span> <span class="n">zero</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></span></span></code></pre></div></p>
 <p>But in my case, the differentiation happens over a non-trivial portion of code (and it&rsquo;s actually amazing that it works most of the time without issues).</p>
 <p>It does not seem to uncommon for people to fight NaNs due to automatic forward differentation, see for example <a href="https://github.com/JuliaDiff/ForwardDiff.jl/issues/179">this thread</a> and <a href="https://github.com/JuliaDiff/ForwardDiff.jl/issues/181">related</a>, or <a href="https://discourse.julialang.org/t/forwarddiff-complicated-functions/31094">that one</a>.</p>
-<figure><img src="/post/jaeckel_expbspline_vol.png"/><figcaption>
-            <h4>Implied volatilities on the extreme market data of Peter Jaeckel.</h4>
-        </figcaption>
-</figure>
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Method</th>
-<th style="text-align:right">RMSE in implied vol %</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Polynomial degree 7</td>
-<td style="text-align:right">5.099</td>
-</tr>
-<tr>
-<td style="text-align:left">Exponential B-spline lambda=0</td>
-<td style="text-align:right">0.012</td>
-</tr>
-<tr>
-<td style="text-align:left">Exponential B-spline lambda=1e-2</td>
-<td style="text-align:right">0.050</td>
-</tr>
-</tbody>
-</table>
-<p>On real market data, it may be advantageous to use Gauss-Hermite nodes instead of the raw market implied nodes. With the same regularization (1e-2), and the same number of nodes, this leads to a very smooth implied density for the example of TSLA options of 18m maturity, much smoother than with the raw nodes without sacrifying too much accuracy. This is because the raw nodes are too close to each other when there are a lot of market observations and too far when there are few market observations.</p>
-<figure><img src="/post/tsla_expbsplinep_density.png"/><figcaption>
-            <h4>Implied probability density on TSLA option of maturity 18 months.</h4>
-        </figcaption>
-</figure>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Method</th>
-<th style="text-align:right">RMSE in implied vol %</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Polynomial degree 7</td>
-<td style="text-align:right">1.31</td>
-</tr>
-<tr>
-<td style="text-align:left">Polynomial degree 11</td>
-<td style="text-align:right">0.93</td>
-</tr>
-<tr>
-<td style="text-align:left">Exponential B-spline lambda=0</td>
-<td style="text-align:right">0.35</td>
-</tr>
-<tr>
-<td style="text-align:left">Exponential B-spline lambda=1e-2</td>
-<td style="text-align:right">0.36</td>
-</tr>
-</tbody>
-</table>
-
-    </section>
-</article>
-
-<footer id="post-meta" class="clearfix">
-    <a href="https://twitter.com/JherekHealy">
-    <img class="avatar" src="https://quantsrus.github.io/images/avatar.png">
-    <div>
-        <span class="dark">Quants R Us</span>
-        <span>I am Jherek Healy.</span>
+<link rel="stylesheet" href="https://quantsrus.github.io/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/post/jaeckel_expbspline_vol.png" alt="/post/jaeckel_expbspline_vol.png"/>
     </div>
-    </a>
-    <section id="sharing">
-        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f - Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation by @JherekHealy"><span class="icon-twitter"> tweet</span></a>
-
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
-
-    </section>
-</footer>
-
-
-
-<ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/efficient_finite_difference_grid_stretching/">Efficient Finite Difference Grid Stretching for Finance<aside class="dates">Aug 28 2022</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/klein_sum_and_monte_carlo_statistics/">Klein summation and Monte-Carlo simulations<aside class="dates">Aug 28 2022</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/cos_method_go_julia/">The Cos Method, Go and Julia<aside class="dates">Jan 18 2021</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/implied_volatility_algorithms_go_julia/">The Fastest Implied Volatility Algorithms, Go vs. Julia<aside class="dates">Dec 2 2020</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/why_did_i_choose_the_go_language/">Why did I choose the Go language?<aside class="dates">Jul 17 2019</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/rbf_collocation_of_2d_pde_and_precision/">Julia and Python for the RBF collocation of a 2D PDE with multiple precision arithmetic<aside class="dates">May 24 2019</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/constraints-in-levenberg-marquardt-least-squares-optimization/">Constraints in the Levenberg-Marquardt least-squares optimization<aside class="dates">Oct 8 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/state_of_convex_quadratic_programming_solvers/">The state of open-source quadratic programming convex optimizers<aside class="dates">Jul 24 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/staying-arbitrage-free-with-andreasen-huge-volatility-interpolation/">Staying arbitrage-free with Andreasen-Huge one-step interpolation<aside class="dates">Mar 8 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="https://quantsrus.github.io/post/on-the-quality-of-research-publications/">On the Quality of Research Publications<aside class="dates">Feb 28 2018</aside></a>
-        </li>
-    
-</ul>
-
-
-
-        <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://twitter.com/JherekHealy">
-        <i class="fa fa-twitter"></i>
-    </a>
-    
-
-
+    <a href="/post/jaeckel_expbspline_vol.png" itemprop="contentUrl"></a>
+      <figcaption><h4>Implied volatilities on the extreme market data of Peter Jaeckel.</h4>
+      </figcaption>
+  </figure>
 </div>
 
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Method</th>
+          <th style="text-align: right">RMSE in implied vol %</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Polynomial degree 7</td>
+          <td style="text-align: right">5.099</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Exponential B-spline lambda=0</td>
+          <td style="text-align: right">0.012</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Exponential B-spline lambda=1e-2</td>
+          <td style="text-align: right">0.050</td>
+      </tr>
+  </tbody>
+</table>
+<p>On real market data, it may be advantageous to use Gauss-Hermite nodes instead of the raw market implied nodes. With the same regularization (1e-2), and the same number of nodes, this leads to a very smooth implied density for the example of TSLA options of 18m maturity, much smoother than with the raw nodes without sacrifying too much accuracy. This is because the raw nodes are too close to each other when there are a lot of market observations and too far when there are few market observations.</p>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/post/tsla_expbsplinep_density.png" alt="/post/tsla_expbsplinep_density.png"/>
+    </div>
+    <a href="/post/tsla_expbsplinep_density.png" itemprop="contentUrl"></a>
+      <figcaption><h4>Implied probability density on TSLA option of maturity 18 months.</h4>
+      </figcaption>
+  </figure>
+</div>
+
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Method</th>
+          <th style="text-align: right">RMSE in implied vol %</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Polynomial degree 7</td>
+          <td style="text-align: right">1.31</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Polynomial degree 11</td>
+          <td style="text-align: right">0.93</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Exponential B-spline lambda=0</td>
+          <td style="text-align: right">0.35</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Exponential B-spline lambda=1e-2</td>
+          <td style="text-align: right">0.36</td>
+      </tr>
+  </tbody>
+</table>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f&amp;text=Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation&amp;via=JherekHealy" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f&amp;title=Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f&amp;title=Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f&amp;title=Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f&amp;description=Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fquantsrus.github.io%2fpost%2fexp_b_spline_collocation_autodiff%2f&amp;subject=Exponential%20B-Spline%20Collocation%20and%20Julia%20Automatic%20Differentiation" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://quantsrus.github.io/post/cos_method_go_julia/" data-toggle="tooltip" data-placement="top" title="The Cos Method, Go and Julia">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://quantsrus.github.io/post/klein_sum_and_monte_carlo_statistics/" data-toggle="tooltip" data-placement="top" title="Klein summation and Monte-Carlo simulations">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
     
-    <p class="small">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:jherekhealy@protonmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/JherekHealy" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/jherek-healy-10bb08154" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://jherekhealy.github.io">Jherek Healy</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://quantsrus.github.io/">Quants R Us</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://quantsrus.github.io/js/katex.min.js"></script>
+<script defer src="https://quantsrus.github.io/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script src="https://quantsrus.github.io/js/jquery-3.7.0.slim.min.js"></script>
+<script src="https://quantsrus.github.io/js/bootstrap.min.js"></script>
+
+<script src="https://quantsrus.github.io/js/main.js"></script><script src="https://quantsrus.github.io/js/photoswipe.min.js"></script>
+<script src="https://quantsrus.github.io/js/photoswipe-ui-default.min.js"></script><script src="https://quantsrus.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
     
-       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> Quants R Us
-    
-    </p>
-</footer>
-<script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-    </section>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://quantsrus.github.io/js/main.js"></script>
-
-
-
-
-
-
-</body>
+  </body>
 </html>
+
