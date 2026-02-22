@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Staying arbitrage-free with Andreasen-Huge one-step interpolation",
-  "description" : "Not long ago, I wrote about Andreasen-Huge arbitrage-free volatility interpolation method. What we get out of Andreasen-Huge method, is a list of discrete option prices. What about option prices for strikes not on the grid?",
+  "description" : "Not long ago, I wrote a post about Andreasen-Huge arbitrage-free volatility interpolation method, showing that using a spline for the one-step local volatility instead of a piecewise-constant (or better, a piecewise-linear) function was not necessarily a great idea.\nWhat we get out of Andreasen-Huge method, is a list of discrete option prices. What about option prices for strikes not on the grid?\nIn this case we still need some kind of interpolation. If we work directly with option prices, as described in their paper, the simplest seems to try a cubic spline on those option prices. In reality, a C2 cubic spline is likely to introduce arbitrages as it does not preserve convexity. How bad is it?\n",
   "inLanguage" : "en",
   "wordCount":  476 ,
   "datePublished" : "2018-03-08T22:48:01\u002b02:00",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">Not long ago, I wrote about Andreasen-Huge arbitrage-free volatility interpolation method. What we get out of Andreasen-Huge method, is a list of discrete option prices. What about option prices for strikes not on the grid?</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -286,9 +290,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/ah_cubic_quintic.png" alt="/post/ah_cubic_quintic.png"/>
+      <img itemprop="thumbnail" src="ah_cubic_quintic.png" alt="ah_cubic_quintic.png"/>
     </div>
-    <a href="/post/ah_cubic_quintic.png" itemprop="contentUrl"></a>
+    <a href="ah_cubic_quintic.png" itemprop="contentUrl"></a>
       <figcaption><h4>Probability density obtained using a C2 Cubic vs a C2 Quintic interpolation on Andreasen-Huge prices.</h4>
       </figcaption>
   </figure>
@@ -315,9 +319,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/ah_fokker_l.png" alt="/post/ah_fokker_l.png"/>
+      <img itemprop="thumbnail" src="ah_fokker_l.png" alt="ah_fokker_l.png"/>
     </div>
-    <a href="/post/ah_fokker_l.png" itemprop="contentUrl"></a>
+    <a href="ah_fokker_l.png" itemprop="contentUrl"></a>
       <figcaption><h4>Probability density obtained by numerically differentiating the integration of the Fokker-Planck one-step density.</h4>
       </figcaption>
   </figure>
@@ -329,9 +333,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/ah_fokker_l_smooth.png" alt="/post/ah_fokker_l_smooth.png"/>
+      <img itemprop="thumbnail" src="ah_fokker_l_smooth.png" alt="ah_fokker_l_smooth.png"/>
     </div>
-    <a href="/post/ah_fokker_l_smooth.png" itemprop="contentUrl"></a>
+    <a href="ah_fokker_l_smooth.png" itemprop="contentUrl"></a>
       <figcaption><h4>Fokker-Planck one-step density.</h4>
       </figcaption>
   </figure>

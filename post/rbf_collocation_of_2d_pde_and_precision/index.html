@@ -63,9 +63,9 @@
     "name" : "Jherek Healy"
   },
   "headline": "Julia and Python for the RBF collocation of a 2D PDE with multiple precision arithmetic",
-  "description" : "This is not going to be a comparison between Julia and Python in general. I am sure there exists already many great articles on Julia vs. XYZ language available on the internet. The below is more a hands on Julia from a numerical scientist point of view, when applied to the RBF collocation of a 2D PDE.",
+  "description" : "I was curious about using Julia, mainly to access the Arb library for arbitrary precision linear algebra. It is written by the author of Python mpmath library, but its principle is quite different, and from the author\u0026rsquo;s blog, it is supposed to be much faster. Then, I also found python \u002b numpy \u002b scipy not so great at building large sparse matrices. It seemed relatively slow to me, numba does not work with scipy sparse matrices. Numba is in general not so nice to use, except to inline some very simple function. So I had previously thought of moving some of my code to Julia. Those remarks should be taken with a grain of salt, because I am no expert in numpy, scipy or numba.\n",
   "inLanguage" : "en",
-  "wordCount":  1290 ,
+  "wordCount":  1289 ,
   "datePublished" : "2019-05-24T15:50:22\u002b02:00",
   "dateModified" : "2019-05-24T15:50:22\u002b02:00",
   "image" : "https:\/\/jherekhealy.github.io\/blog\/images\/avatar@2x.png",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">This is not going to be a comparison between Julia and Python in general. I am sure there exists already many great articles on Julia vs. XYZ language available on the internet. The below is more a hands on Julia from a numerical scientist point of view, when applied to the RBF collocation of a 2D PDE.</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -281,7 +285,7 @@
 <p>The problem I solved is closely linked to the solution of the <a href="https://en.wikipedia.org/wiki/Heston_model">Heston</a> 2D-PDE. I was sort of curious to see if <a href="https://en.wikipedia.org/wiki/Kansa_method">RBF collocation</a> was any good, and what was its performance in practice. Compared to a classic finite difference discretization, the RBF collocation implies the solution of dense matrices instead of sparse (usually tridiagonal) matrices. One may need however much less discretization points to achieve a reasonable accuracy with the collocation approach.</p>
 <p>The RBF collocation function is
 $$ f(x) = \sum_{i=1}^{n} a_j \sqrt{c^2 + \Vert x - x_i \Vert^2} $$</p>
-<p>where c is called the shape parameter. The points x are in the two dimensional space and correspond to the spot and variance (S,v) of the Heston model. I used a simple rectangular grid.</p>
+<p>where c is called the shape parameter. The points x are in the two-dimensional space and correspond to the spot and variance (S,v) of the Heston model. I used a simple rectangular grid.</p>
 <p>One notable issue of RBF interpolation (with a multiquadric function or some other infinite support function) is that the resulting linear system may be ill-conditioned when c is too large (the multiquadric function behaves then almost like an affine function), due to the limits of the double number representation (64-bits). But how large is too large? What is a good choice for c?
 Those are difficult questions.</p>
 <p>A recent paper from Kansa, titled <a href="https://www.researchgate.net/publication/314224938_On_the_ill-conditioned_nature_of_C_RBF_strong_collocation">On the ill-conditioned nature of RBF strong collocation</a>, suggests that a large c is often optimal (note that the RBF is sometimes expressed with \( \epsilon=\frac{1}{c} \), also called shape parameter, and this paper is very ambiguous about the notation), as long as we use multiple precision arithmetic, for example floats on 256 bits. This is why I thought of trying, at first the mpmath library, until I stumbled upon the Arb library.
@@ -291,9 +295,9 @@ I found out that the multiple precision was not only important for the linear sy
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/rbf_heston_shape.png" alt="/post/rbf_heston_shape.png"/>
+      <img itemprop="thumbnail" src="rbf_heston_shape.png" alt="rbf_heston_shape.png"/>
     </div>
-    <a href="/post/rbf_heston_shape.png" itemprop="contentUrl"></a>
+    <a href="rbf_heston_shape.png" itemprop="contentUrl"></a>
       <figcaption><h4>Error in price against the scaled shape parameter, for different grid sizes L, and 64 bits or 256 bits floats.</h4>
       </figcaption>
   </figure>

@@ -231,6 +231,10 @@
     <a href="https://jherekhealy.github.io/blog/post/staying-arbitrage-free-with-andreasen-huge-volatility-interpolation/">
         <h2 class="post-title">Staying arbitrage-free with Andreasen-Huge one-step interpolation</h2>
         
+        <h3 class="post-subtitle">
+            Not long ago, I wrote about Andreasen-Huge arbitrage-free volatility interpolation method. What we get out of Andreasen-Huge method, is a list of discrete option prices. What about option prices for strikes not on the grid?
+        </h3>
+        
         
         
     </a>
@@ -270,6 +274,10 @@
             <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/on-the-quality-of-research-publications/">
         <h2 class="post-title">On the Quality of Research Publications</h2>
+        
+        <h3 class="post-subtitle">
+            Errors not corrected
+        </h3>
         
         
         
@@ -317,6 +325,10 @@ with \( 0.05 \leq x_1 \leq 2, 0.25 \leq x_2 \leq 1.3, 2 \leq x_3 \leq 15 \)</p>
     <a href="https://jherekhealy.github.io/blog/post/webassembly_still_fragile/">
         <h2 class="post-title">Webassembly still fragile</h2>
         
+        <h3 class="post-subtitle">
+            Playing around with webassembly for implied volatility fractals in the browser
+        </h3>
+        
         
         
     </a>
@@ -356,6 +368,10 @@ with \( 0.05 \leq x_1 \leq 2, 0.25 \leq x_2 \leq 1.3, 2 \leq x_3 \leq 15 \)</p>
     <a href="https://jherekhealy.github.io/blog/post/particle_swarm_optimization_heston_calibration/">
         <h2 class="post-title">Particle Swarm Optimization on Heston Small-Time Expansion</h2>
         
+        <h3 class="post-subtitle">
+            Here, I look at the problem of calibrating a Heston small-time expansion, the one from Forde &amp; Jacquier. This can be useful to find a good initial guess for the exact Heston calibration, computed with much costlier characteristic function Fourier numerical integration. I conclude with the madness of the life science inspired optimizers...
+        </h3>
+        
         
         
     </a>
@@ -381,7 +397,7 @@ with \( 0.05 \leq x_1 \leq 2, 0.25 \leq x_2 \leq 1.3, 2 \leq x_3 \leq 15 \)</p>
     </p>
     <div class="post-entry">
         
-        <p>This is a sequel to my <a href="/post/particle_swarm_optimization/">previous post on Particle Swarm Optimization</a>. Here, I look at the problem of &ldquo;calibrating&rdquo;
+        <p>This is a sequel to my <a href="particle_swarm_optimization">previous post on Particle Swarm Optimization</a>. Here, I look at the problem of &ldquo;calibrating&rdquo;
 a Heston small-time expansion, the one from <a href="http://www2.imperial.ac.uk/~ajacquie/index_files/Forde,%20Jacquier%20-%20Small-time%20asymptotics%20for%20implied%20volatility%20under%20the%20Heston%20model.pdf">Forde &amp; Jacquier</a>). This can be useful to find a good initial guess for the exact
 Heston calibration, computed with much costlier characteristic function Fourier numerical integration.</p>
 <p>Unfortunately, as we see below, with the contour plots of the objective function
@@ -392,9 +408,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/forde_3d.png" alt="/post/forde_3d.png"/>
+       <img itemprop="thumbnail" src="forde_3d.png" alt="forde_3d.png"/>
      </div>
-     <a href="/post/forde_3d.png" itemprop="contentUrl"></a>
+     <a href="forde_3d.png" itemprop="contentUrl"></a>
        <figcaption><h4>RMSE of the small-time Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho.</h4>
        </figcaption>
    </figure>
@@ -405,9 +421,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/forde_contour.png" alt="/post/forde_contour.png"/>
+       <img itemprop="thumbnail" src="forde_contour.png" alt="forde_contour.png"/>
      </div>
-     <a href="/post/forde_contour.png" itemprop="contentUrl"></a>
+     <a href="forde_contour.png" itemprop="contentUrl"></a>
        <figcaption><h4>contour plot of the small-time RMSE</h4>
        </figcaption>
    </figure>
@@ -418,9 +434,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/flinn_3d.png" alt="/post/flinn_3d.png"/>
+       <img itemprop="thumbnail" src="flinn_3d.png" alt="flinn_3d.png"/>
      </div>
-     <a href="/post/flinn_3d.png" itemprop="contentUrl"></a>
+     <a href="flinn_3d.png" itemprop="contentUrl"></a>
        <figcaption><h4>RMSE of the Fourier-based Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho.</h4>
        </figcaption>
    </figure>
@@ -431,9 +447,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/flinn_contour.png" alt="/post/flinn_contour.png"/>
+       <img itemprop="thumbnail" src="flinn_contour.png" alt="flinn_contour.png"/>
      </div>
-     <a href="/post/flinn_contour.png" itemprop="contentUrl"></a>
+     <a href="flinn_contour.png" itemprop="contentUrl"></a>
        <figcaption><h4>contour plot of the Fourier-based (nearly exact) RMSE</h4>
        </figcaption>
    </figure>
@@ -450,6 +466,10 @@ than with the numerical integration.
             <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/particle_swarm_optimization/">
         <h2 class="post-title">Particle Swarm Optimization</h2>
+        
+        <h3 class="post-subtitle">
+            Some of my findings: a lot of publications. 45000 citations for the most popular one! Which are the ones that matter? Many different standards, but not a single one clearly expressed. Some surprisingly ugly source code.
+        </h3>
         
         
         
@@ -476,7 +496,7 @@ than with the numerical integration.
     </p>
     <div class="post-entry">
         
-        <p>In my <a href="/post/differential_evolution_vs_simulated_annealing/">previous post</a>, I looked at simulated annealing to calibrate Heston.
+        <p>In my <a href="differential_evolution_vs_simulated_annealing">previous post</a>, I looked at simulated annealing to calibrate Heston.
 A less well-known and more fancy global minimizer is the particle swarm optimization (PSO). I stumbled upon it
 by accident through a <a href="https://www.youtube.com/watch?v=bVDX_UwthZI">youtube presentation from James McCaffrey</a>. He shows a small python algorithm that solves the travelling salesman problem.</p>
 <p>Intrigued, I started to read papers on it. It turns out there are a lot of publications on PSO, not always of great quality. Fortunately Google Scholar is my friend and pointed me to
@@ -493,6 +513,10 @@ the most practical one I could find is <a href="http://ieeexplore.ieee.org/docum
             <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/differential_evolution_vs_simulated_annealing/">
         <h2 class="post-title">Differential evolution vs. Simulated annealing</h2>
+        
+        <h3 class="post-subtitle">
+            The differential evolution (DE) algorithm is somewhat popular in quantitative finance, for example to calibrate stochastic volatility models such as Heston. An older technique, much more popular in physics is simulated annealing (SA). There are few papers on its use for stochastic volatility calibration, most don&#39;t find the technique competitive or even usable.
+        </h3>
         
         
         
@@ -535,6 +559,10 @@ or even usable (see <a href="https://books.google.fr/books?id=NJZB_cMoZ_EC&amp;p
             <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/andreasen_huge_spline/">
         <h2 class="post-title">A spline to fill the gaps with Andreasen-Huge one-step method</h2>
+        
+        <h3 class="post-subtitle">
+            I recently stumbled upon a blog which suggested to not stay flat with Andreasen-Huge  arbitrage free volatility interpolation method. What about using a spline?
+        </h3>
         
         
         

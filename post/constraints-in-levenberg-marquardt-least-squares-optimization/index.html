@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Constraints in the Levenberg-Marquardt least-squares optimization",
-  "description" : "The standard Levenberg-Marquardt (LM) optimizer does not support box constraints. We explore here two different approaches to add box constraints for a given unconstrained LM algorithm.",
+  "description" : "The standard Levenberg-Marquardt optimizer does not support box constraints. This is, for example the case for good MINPACK lmdif\/lmder implementations that many optimization libraries use underneath. But in practice, it is often useful to limit the range of the variables, often because the objective might not be defined everywhere.\nThe R minpack.lm CRAN package allows the user to specify box constraints. How do they do it?\nThey choose a very straightforward projection approach to enforce the constraints: if the guess is outside the box, they place it at the closest boundary (see the source code). I believe this corresponds to the algorithm described in section 3 of the paper Levenberg-Marquardt methods for constrained nonlinear equations with strong local convergence properties.\n",
   "inLanguage" : "en",
   "wordCount":  268 ,
   "datePublished" : "2018-10-08T22:48:01\u002b02:00",
@@ -243,6 +243,10 @@
                 <h1>Constraints in the Levenberg-Marquardt least-squares optimization</h1>
               
               
+              
+                
+                  <h2 class="post-subheading">The standard Levenberg-Marquardt (LM) optimizer does not support box constraints. We explore here two different approaches to add box constraints for a given unconstrained LM algorithm.</h2>
+                
               
               
                 <span class="post-meta">

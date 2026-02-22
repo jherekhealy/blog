@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "A spline to fill the gaps with Andreasen-Huge one-step method",
-  "description" : "I recently stumbled upon a blog which suggested to not stay flat with Andreasen-Huge  arbitrage free volatility interpolation method. What about using a spline?",
+  "description" : "I recently stumbled upon a blog which suggested to not stay flat with Andreasen-Huge arbitrage free volatility interpolation method. The paper from Andreasen and Huge specifies a piecewise constant (single-step) local volatility where the number of constants matches the number of market option prices.\nThe blog post shows eventual unstability with the piecewise constant approach, not visible with a linear interpolation. I wondered then if we should not go to the next level: use a spline on N values where N is the number of market options prices. Using a spline to represent the local volatility is a very common idea, for example it is in the large-step local volatility method of Reghai-Boya-Vong.\n",
   "inLanguage" : "en",
   "wordCount":  345 ,
   "datePublished" : "2017-05-11T22:48:01\u002b02:00",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">I recently stumbled upon a blog which suggested to not stay flat with Andreasen-Huge  arbitrage free volatility interpolation method. What about using a spline?</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -285,9 +289,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/andreasen_huge_hyman.png" alt="/post/andreasen_huge_hyman.png"/>
+      <img itemprop="thumbnail" src="andreasen_huge_hyman.png" alt="andreasen_huge_hyman.png"/>
     </div>
-    <a href="/post/andreasen_huge_hyman.png" itemprop="contentUrl"></a>
+    <a href="andreasen_huge_hyman.png" itemprop="contentUrl"></a>
       <figcaption><h4>Local variance as a function of the log-strike. Zoom on the problematic region with Hyman interpolation.</h4>
       </figcaption>
   </figure>
@@ -300,9 +304,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/andreasen_huge_spline_good.png" alt="/post/andreasen_huge_spline_good.png"/>
+      <img itemprop="thumbnail" src="andreasen_huge_spline_good.png" alt="andreasen_huge_spline_good.png"/>
     </div>
-    <a href="/post/andreasen_huge_spline_good.png" itemprop="contentUrl"></a>
+    <a href="andreasen_huge_spline_good.png" itemprop="contentUrl"></a>
       <figcaption><h4>Local variance as a function of the log-strike with Huynh rational limiter.</h4>
       </figcaption>
   </figure>

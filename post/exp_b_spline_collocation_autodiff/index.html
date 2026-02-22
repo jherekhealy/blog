@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Exponential B-Spline Collocation and Julia Automatic Differentiation",
-  "description" : "New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation.",
+  "description" : "I just added the exponential B-spline collocation to produce a flexible arbitrage-free interpolation of implied-volatilities to the book related github repo. I had written the polynomial collocation before, at the request of a reader of my book. The polynomial collocation is often what you will want to use but it has a few drawbacks sometimes:\nIt may not always fit well enough given the limited number of free-parameters. It sometimes produces artificial spikes in the extrapolation, even if the use of a specific regularization helps to address this. There is absorption at zero. The exponential B-spline collocation offer as many parameters as anyone wants, avoids spikes (but also needs regularization in practice), and will map to the open interval \\( (0, \u002b\\infty) \\): no absorption to deal with. An alternative, that I actually explored, would be a B-spline collocation towards the lognormal distribution. In general, the alternative is not interesting, since it produces a worse fit, for the same reasons as with a polynomial, as described out there.\n",
   "inLanguage" : "en",
   "wordCount":  627 ,
   "datePublished" : "2021-10-12T21:50:22\u002b02:00",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">New algorithms for polynomial stochastic collocation and exponential B-spline collocation are available now in my github repo. I had a few surprises while recreating those in Julia and using the forward automatic differentiation.</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -304,9 +308,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/jaeckel_expbspline_vol.png" alt="/post/jaeckel_expbspline_vol.png"/>
+      <img itemprop="thumbnail" src="jaeckel_expbspline_vol.png" alt="jaeckel_expbspline_vol.png"/>
     </div>
-    <a href="/post/jaeckel_expbspline_vol.png" itemprop="contentUrl"></a>
+    <a href="jaeckel_expbspline_vol.png" itemprop="contentUrl"></a>
       <figcaption><h4>Implied volatilities on the extreme market data of Peter Jaeckel.</h4>
       </figcaption>
   </figure>
@@ -340,9 +344,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/tsla_expbsplinep_density.png" alt="/post/tsla_expbsplinep_density.png"/>
+      <img itemprop="thumbnail" src="tsla_expbsplinep_density.png" alt="tsla_expbsplinep_density.png"/>
     </div>
-    <a href="/post/tsla_expbsplinep_density.png" itemprop="contentUrl"></a>
+    <a href="tsla_expbsplinep_density.png" itemprop="contentUrl"></a>
       <figcaption><h4>Implied probability density on TSLA option of maturity 18 months.</h4>
       </figcaption>
   </figure>

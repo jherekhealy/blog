@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Efficient Finite Difference Grid Stretching for Finance",
-  "description" : "Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed.",
+  "description" : "Partial differential equations sometimes have critical points where the solution or some of its derivatives are discontinuous. The simplest example is a discontinuity in the initial condition. It is well known that those decrease the accuracy of finite difference methods. A common remedy is to stretch the grid, such that many more grid points are present near the critical points, and fewer where the solution is deemed smooth. An alternative solution is to insert points such that the discontinuities fall in the middle of two grid points.\n",
   "inLanguage" : "en",
   "wordCount":  574 ,
   "datePublished" : "2022-08-28T21:50:22\u002b02:00",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">Discontinuities in the payoff or its derivatives are common in financial PDEs. If not handled properly, those discontinuities may decrease the accuracy of the finite difference scheme significantly. Are insertions at relevant locations good enough? What about streched grids? A new efficient stretching is proposed.</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -293,9 +297,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/stretching_cubic.png" alt="/post/stretching_cubic.png"/>
+      <img itemprop="thumbnail" src="stretching_cubic.png" alt="stretching_cubic.png"/>
     </div>
-    <a href="/post/stretching_cubic.png" itemprop="contentUrl"></a>
+    <a href="stretching_cubic.png" itemprop="contentUrl"></a>
   </figure>
 </div>
 </p>

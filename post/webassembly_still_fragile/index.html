@@ -14,7 +14,7 @@
 
       <title>Webassembly still fragile - </title>
 
-  <meta name="description" content="As I am preparing the website for my upcoming book on equity derivatives models, I played around with webassembly to run some C&#43;&#43; code from your web browser...">
+  <meta name="description" content="Playing around with webassembly for implied volatility fractals in the browser">
   <meta name="author" content="Jherek Healy"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Webassembly still fragile",
-  "description" : "As I am preparing the website for my upcoming book on equity derivatives models, I played around with webassembly to run some C\u002b\u002b code from your web browser...",
+  "description" : "As I am preparing the website for my upcoming book on equity derivatives models, I played around with webassembly to run some C\u002b\u002b code from your web browser. In order to do that, I rely on emscripten, which seems to be the most advanced toolkit to generate webassembly code.\nI did not expect the webassembly toolchain to be so fragile. At first I had trouble using some specific C code (not so complicated) from javascript through emscripten: there are multiple ways to do it. Many approaches failed and I did not manage to go very far to find out the root cause for the failure. One approach worked, the one described in the Google tutorial for Webassembly.\n",
   "inLanguage" : "en",
   "wordCount":  303 ,
   "datePublished" : "2017-12-05T22:48:01\u002b02:00",
@@ -86,14 +86,14 @@
 
 
 <meta property="og:title" content="Webassembly still fragile" />
-<meta property="og:description" content="As I am preparing the website for my upcoming book on equity derivatives models, I played around with webassembly to run some C&#43;&#43; code from your web browser...">
+<meta property="og:description" content="Playing around with webassembly for implied volatility fractals in the browser">
 <meta property="og:image" content="https://jherekhealy.github.io/blog/images/avatar@2x.png" />
 <meta property="og:url" content="https://jherekhealy.github.io/blog/post/webassembly_still_fragile/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Jherek&#39;s Blog" />
 
   <meta name="twitter:title" content="Webassembly still fragile" />
-  <meta name="twitter:description" content="As I am preparing the website for my upcoming book on equity derivatives models, I played around with webassembly to run some C&#43;&#43; code from your web browser...">
+  <meta name="twitter:description" content="Playing around with webassembly for implied volatility fractals in the browser">
   <meta name="twitter:image" content="https://jherekhealy.github.io/blog/images/avatar@2x.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@JherekHealy" />
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">Playing around with webassembly for implied volatility fractals in the browser</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -287,7 +291,7 @@
 </span></span><span class="line"><span class="cl">    at wasm-function[45]:38
 </span></span><span class="line"><span class="cl">    at wasm-function[138]:23
 </span></span><span class="line"><span class="cl">    at dynCall_iiiiiddd_1 (eval at makeDynCaller (http://localhost:9000/fractal.js:1:42548),</span></span></code></pre></div>
-And looking at the line 42548 of the generated javascript file is not very helpful. It is actually quite amazing that emscripten generates so many lines of javascript (this is partly because I rely on the C++ standard library I suppose). I managed to find a workaround thanks to a google search. I have to add the option <!-- raw HTML omitted -->-s &ldquo;BINARYEN_TRAP_MODE=&lsquo;clamp&rsquo;&quot;<!-- raw HTML omitted --> to em++. I wonder what the root cause exactly is, maybe the <a href="http://ab-initio.mit.edu/wiki/index.php/Faddeeva_Package">faddeeva library</a> tries to convert infinity or NaN to an int? I could not find it.</p>
+And looking at the line 42548 of the generated javascript file is not very helpful. It is actually quite amazing that emscripten generates so many lines of javascript (this is partly because I rely on the C++ standard library I suppose). I managed to find a workaround thanks to a google search. I have to add the option <code>-s &quot;BINARYEN_TRAP_MODE='clamp'&quot;</code> to em++. I wonder what the root cause exactly is, maybe the <a href="http://ab-initio.mit.edu/wiki/index.php/Faddeeva_Package">faddeeva library</a> tries to convert infinity or NaN to an int? I could not find it.</p>
 <p>In any case, when it works, it works well and it is definitely possible to call some C++ libraries from javascript, which is still something quite amazing.</p>
 
 

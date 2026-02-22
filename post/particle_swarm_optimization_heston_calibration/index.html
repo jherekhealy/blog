@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Particle Swarm Optimization on Heston Small-Time Expansion",
-  "description" : "Here, I look at the problem of calibrating a Heston small-time expansion, the one from Forde \u0026 Jacquier. This can be useful to find a good initial guess for the exact Heston calibration, computed with much costlier characteristic function Fourier numerical integration. I conclude with the madness of the life science inspired optimizers...",
+  "description" : "This is a sequel to my previous post on Particle Swarm Optimization. Here, I look at the problem of \u0026ldquo;calibrating\u0026rdquo; a Heston small-time expansion, the one from Forde \u0026amp; Jacquier). This can be useful to find a good initial guess for the exact Heston calibration, computed with much costlier characteristic function Fourier numerical integration.\nUnfortunately, as we see below, with the contour plots of the objective function (the RMSE in volatilities against market quotes), the problem is much less well behaved with the small-time expansion than with the numerical integration. RMSE of the small-time Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho. contour plot of the small-time RMSE RMSE of the Fourier-based Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho. contour plot of the Fourier-based (nearly exact) RMSE ",
   "inLanguage" : "en",
   "wordCount":  1174 ,
   "datePublished" : "2017-07-06T07:48:01\u002b02:00",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading">Here, I look at the problem of calibrating a Heston small-time expansion, the one from Forde &amp; Jacquier. This can be useful to find a good initial guess for the exact Heston calibration, computed with much costlier characteristic function Fourier numerical integration. I conclude with the madness of the life science inspired optimizers...</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -277,7 +281,7 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>This is a sequel to my <a href="/post/particle_swarm_optimization/">previous post on Particle Swarm Optimization</a>. Here, I look at the problem of &ldquo;calibrating&rdquo;
+        <p>This is a sequel to my <a href="particle_swarm_optimization">previous post on Particle Swarm Optimization</a>. Here, I look at the problem of &ldquo;calibrating&rdquo;
 a Heston small-time expansion, the one from <a href="http://www2.imperial.ac.uk/~ajacquie/index_files/Forde,%20Jacquier%20-%20Small-time%20asymptotics%20for%20implied%20volatility%20under%20the%20Heston%20model.pdf">Forde &amp; Jacquier</a>). This can be useful to find a good initial guess for the exact
 Heston calibration, computed with much costlier characteristic function Fourier numerical integration.</p>
 <p>Unfortunately, as we see below, with the contour plots of the objective function
@@ -288,9 +292,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/forde_3d.png" alt="/post/forde_3d.png"/>
+       <img itemprop="thumbnail" src="forde_3d.png" alt="forde_3d.png"/>
      </div>
-     <a href="/post/forde_3d.png" itemprop="contentUrl"></a>
+     <a href="forde_3d.png" itemprop="contentUrl"></a>
        <figcaption><h4>RMSE of the small-time Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho.</h4>
        </figcaption>
    </figure>
@@ -301,9 +305,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/forde_contour.png" alt="/post/forde_contour.png"/>
+       <img itemprop="thumbnail" src="forde_contour.png" alt="forde_contour.png"/>
      </div>
-     <a href="/post/forde_contour.png" itemprop="contentUrl"></a>
+     <a href="forde_contour.png" itemprop="contentUrl"></a>
        <figcaption><h4>contour plot of the small-time RMSE</h4>
        </figcaption>
    </figure>
@@ -314,9 +318,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/flinn_3d.png" alt="/post/flinn_3d.png"/>
+       <img itemprop="thumbnail" src="flinn_3d.png" alt="flinn_3d.png"/>
      </div>
-     <a href="/post/flinn_3d.png" itemprop="contentUrl"></a>
+     <a href="flinn_3d.png" itemprop="contentUrl"></a>
        <figcaption><h4>RMSE of the Fourier-based Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho.</h4>
        </figcaption>
    </figure>
@@ -327,9 +331,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="/post/flinn_contour.png" alt="/post/flinn_contour.png"/>
+       <img itemprop="thumbnail" src="flinn_contour.png" alt="flinn_contour.png"/>
      </div>
-     <a href="/post/flinn_contour.png" itemprop="contentUrl"></a>
+     <a href="flinn_contour.png" itemprop="contentUrl"></a>
        <figcaption><h4>contour plot of the Fourier-based (nearly exact) RMSE</h4>
        </figcaption>
    </figure>

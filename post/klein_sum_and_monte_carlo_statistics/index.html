@@ -63,7 +63,7 @@
     "name" : "Jherek Healy"
   },
   "headline": "Klein summation and Monte-Carlo simulations",
-  "description" : " In parallelized Monte-Carlo simulations, the order of summation is not always the same. When the mean is calculated in running fashion, this may create an artificial randomness in results which ought to be reproducible. Does the Klein summation help addressing this issue? Are there better alternatives?",
+  "description" : "The straightforward and naive ways of calculating the mean and variance of the samples of a Monte-Carlo simulation may introduce artificial errors in the results. Monte-Carlo simulations are inherently parallelisable. It is possible and often desirable to run such a parallel simulation using a consistent set of random numbers, such that the results of the simulation are reproducible. However, the operating system scheduling of the simulation on the multiple cores or CPUs implies some randomness in the order of the completed batches of results, due to the varying load of the CPUs. When the mean and variance of the Monte-Carlo simulation are calculated in running manner, the results obtained may differ due to the order of the terms in the summations involved, because of limits of accuracy imposed by the IEEE 64-bit floating-point standard. The differences may appear minor, but are amplified in finite-difference based sensitivities based on the mean, reusing the same random numbers (which is a standard practice).\n",
   "inLanguage" : "en",
   "wordCount":  683 ,
   "datePublished" : "2022-08-28T21:50:22\u002b02:00",
@@ -244,6 +244,10 @@
               
               
               
+                
+                  <h2 class="post-subheading"> In parallelized Monte-Carlo simulations, the order of summation is not always the same. When the mean is calculated in running fashion, this may create an artificial randomness in results which ought to be reproducible. Does the Klein summation help addressing this issue? Are there better alternatives?</h2>
+                
+              
               
                 <span class="post-meta">
   
@@ -295,9 +299,9 @@ amplified in finite-difference based sensitivities based on the mean, reusing th
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/kahan_klein_error.png" alt="/post/kahan_klein_error.png"/>
+      <img itemprop="thumbnail" src="kahan_klein_error.png" alt="kahan_klein_error.png"/>
     </div>
-    <a href="/post/kahan_klein_error.png" itemprop="contentUrl"></a>
+    <a href="kahan_klein_error.png" itemprop="contentUrl"></a>
       <figcaption><h4>Absolute errors on 10 random sequences of 50 million numbers in 32-bit arithmetic. The 7-th sequence shows a small difference in favor of Kahan.</h4>
       </figcaption>
   </figure>
@@ -308,9 +312,9 @@ amplified in finite-difference based sensitivities based on the mean, reusing th
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/kahan_ordered_error.png" alt="/post/kahan_ordered_error.png"/>
+      <img itemprop="thumbnail" src="kahan_ordered_error.png" alt="kahan_ordered_error.png"/>
     </div>
-    <a href="/post/kahan_ordered_error.png" itemprop="contentUrl"></a>
+    <a href="kahan_ordered_error.png" itemprop="contentUrl"></a>
       <figcaption><h4>Absolute errors on 10 random sequences of 50 million numbers in 32-bit arithmetic, comparing with the same set of numbers, used in ascending order for the algorithm of Kahan. No difference at all.</h4>
       </figcaption>
   </figure>
@@ -321,9 +325,9 @@ amplified in finite-difference based sensitivities based on the mean, reusing th
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/klein_klein_error.png" alt="/post/klein_klein_error.png"/>
+      <img itemprop="thumbnail" src="klein_klein_error.png" alt="klein_klein_error.png"/>
     </div>
-    <a href="/post/klein_klein_error.png" itemprop="contentUrl"></a>
+    <a href="klein_klein_error.png" itemprop="contentUrl"></a>
       <figcaption><h4>Absolute errors on 10 random sequences of 50 million numbers in 32-bit arithmetic, comparing with the same set of numbers, used in ascending order for the algorithm of Klein. Note the log scale and large error differences.</h4>
       </figcaption>
   </figure>
