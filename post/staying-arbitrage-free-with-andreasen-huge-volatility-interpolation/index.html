@@ -159,8 +159,8 @@
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Jherek&#39;s Blog" href="https://jherekhealy.github.io/blog/">
-            <img class="avatar-img" src="https://jherekhealy.github.io/blog/images/avatar@2x.png" alt="Jherek&#39;s Blog" />
-           
+            <img class="avatar-img" src="https://jherekhealy.github.io/blog/images/avatar@2x_hu_e756b14c1b5940aa.webp" alt="Jherek&#39;s Blog" />
+          
           </a>
         </div>
       </div>
@@ -281,7 +281,7 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Not long ago, I wrote a <a href="/post/andreasen_huge_spline">post about Andreasen-Huge</a> arbitrage-free volatility interpolation method, showing that using a spline for the one-step local volatility instead of a piecewise-constant (or better, a piecewise-linear) function was not necessarily a great idea.</p>
+        <p>Not long ago, I wrote a <a href="../andreasen_huge_spline">post about Andreasen-Huge</a> arbitrage-free volatility interpolation method, showing that using a spline for the one-step local volatility instead of a piecewise-constant (or better, a piecewise-linear) function was not necessarily a great idea.</p>
 <p>What we get out of Andreasen-Huge method, is a list of discrete option prices. What about option prices for strikes not on the grid?</p>
 <p>In this case we still need some kind of interpolation. If we work directly with option prices, as described in their paper, the simplest seems to try a cubic spline on those option prices. In reality, a C2 cubic spline is likely to introduce arbitrages as it does not preserve convexity. How bad is it?</p>
 <p>It can be really bad. Below is an example based on the market mid prices of 1m SPX options as of February 5, 2018. It is an example where calibration is not perfect (likely because there is a small arbitrage in the quotes, within the bid-ask spread).</p>
@@ -290,9 +290,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="ah_cubic_quintic.png" alt="ah_cubic_quintic.png"/>
+      <img itemprop="thumbnail" src="../ah_cubic_quintic.png" alt="../ah_cubic_quintic.png"/>
     </div>
-    <a href="ah_cubic_quintic.png" itemprop="contentUrl"></a>
+    <a href="../ah_cubic_quintic.png" itemprop="contentUrl"></a>
       <figcaption><h4>Probability density obtained using a C2 Cubic vs a C2 Quintic interpolation on Andreasen-Huge prices.</h4>
       </figcaption>
   </figure>
@@ -305,9 +305,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/post/ah_quintic_fokker.png" alt="/post/ah_quintic_fokker.png"/>
+      <img itemprop="thumbnail" src="../ah_quintic_fokker.png" alt="../ah_quintic_fokker.png"/>
     </div>
-    <a href="/post/ah_quintic_fokker.png" itemprop="contentUrl"></a>
+    <a href="../ah_quintic_fokker.png" itemprop="contentUrl"></a>
       <figcaption><h4>Probability density obtained using a C2 Quintic interpolation on Andreasen-Huge prices vs. the integration of the Fokker-Planck one-step density.</h4>
       </figcaption>
   </figure>
@@ -319,9 +319,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="ah_fokker_l.png" alt="ah_fokker_l.png"/>
+      <img itemprop="thumbnail" src="../ah_fokker_l.png" alt="../ah_fokker_l.png"/>
     </div>
-    <a href="ah_fokker_l.png" itemprop="contentUrl"></a>
+    <a href="../ah_fokker_l.png" itemprop="contentUrl"></a>
       <figcaption><h4>Probability density obtained by numerically differentiating the integration of the Fokker-Planck one-step density.</h4>
       </figcaption>
   </figure>
@@ -333,9 +333,9 @@
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="ah_fokker_l_smooth.png" alt="ah_fokker_l_smooth.png"/>
+      <img itemprop="thumbnail" src="../ah_fokker_l_smooth.png" alt="../ah_fokker_l_smooth.png"/>
     </div>
-    <a href="ah_fokker_l_smooth.png" itemprop="contentUrl"></a>
+    <a href="../ah_fokker_l_smooth.png" itemprop="contentUrl"></a>
       <figcaption><h4>Fokker-Planck one-step density.</h4>
       </figcaption>
   </figure>

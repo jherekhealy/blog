@@ -106,8 +106,8 @@
       <div class="avatar-container">
         <div class="avatar-img-border">
           <a title="Jherek&#39;s Blog" href="https://jherekhealy.github.io/blog/">
-            <img class="avatar-img" src="https://jherekhealy.github.io/blog/images/avatar@2x.png" alt="Jherek&#39;s Blog" />
-           
+            <img class="avatar-img" src="https://jherekhealy.github.io/blog/images/avatar@2x_hu_e756b14c1b5940aa.webp" alt="Jherek&#39;s Blog" />
+          
           </a>
         </div>
       </div>
@@ -249,7 +249,7 @@
     </p>
     <div class="post-entry">
         
-        <p>Not long ago, I wrote a <a href="/post/andreasen_huge_spline">post about Andreasen-Huge</a> arbitrage-free volatility interpolation method, showing that using a spline for the one-step local volatility instead of a piecewise-constant (or better, a piecewise-linear) function was not necessarily a great idea.</p>
+        <p>Not long ago, I wrote a <a href="../andreasen_huge_spline">post about Andreasen-Huge</a> arbitrage-free volatility interpolation method, showing that using a spline for the one-step local volatility instead of a piecewise-constant (or better, a piecewise-linear) function was not necessarily a great idea.</p>
 <p>What we get out of Andreasen-Huge method, is a list of discrete option prices. What about option prices for strikes not on the grid?</p>
 <p>In this case we still need some kind of interpolation. If we work directly with option prices, as described in their paper, the simplest seems to try a cubic spline on those option prices. In reality, a C2 cubic spline is likely to introduce arbitrages as it does not preserve convexity. How bad is it?</p>
         <a href="https://jherekhealy.github.io/blog/post/staying-arbitrage-free-with-andreasen-huge-volatility-interpolation/" class="post-read-more">[Read More]</a>
@@ -293,8 +293,8 @@
     </p>
     <div class="post-entry">
         
-        <p>I spent the last week-end to review a paper for the journal <a href="https://www.journals.elsevier.com/expert-systems-with-applications">Expert Systems with Applications</a>. It was a paper on a variant of Spider Monkey Optimization, which is in the same spirit as differential evolution or particle swarm optimization. Yes, it could be added to the list of esoteric optimizers at the end of this <a href="/particle_swarm_optimization_heston_calibration/">Quants R Us post</a>.</p>
-<p>While the manuscript was relatively interesting in itself, and there was definitely some non-trivial amount of work behind it, it was riddled with errors: in the equations, in the algorithms, in the text, in the examples. Some were easy to spot, others not so much. One of the examples is the &ldquo;Design of Coil Springs&rdquo; originally presented in J. Arora book <a href="https://www.amazon.com/Introduction-Optimum-Design-Fourth-Jasbir/dp/0128008067/ref=sr_1_fkmr1_1?s=books&amp;ie=UTF8&amp;qid=1519982488&amp;sr=1-1-fkmr1&amp;keywords=introduction+to+optimum+design+aurora">Introduction to Optimum Design</a> (nice book, which can also have applications in finance: optimum design and optimum collateral allocation are not very different). In various papers ([Mezura-Montes &amp; Coello] (<a href="https://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwiy7u_sqc3ZAhUBPBQKHUHBAogQFgg2MAE&amp;url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.324.3199%26rep%3Drep1%26type%3Dpdf&amp;usg=AOvVaw2zY-0YnxhRwvHtQUcxAfME)">https://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwiy7u_sqc3ZAhUBPBQKHUHBAogQFgg2MAE&amp;url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.324.3199%26rep%3Drep1%26type%3Dpdf&amp;usg=AOvVaw2zY-0YnxhRwvHtQUcxAfME)</a>, <a href="https://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwiqgum9qM3ZAhUBnxQKHdwRB0sQFgg2MAE&amp;url=https%3A%2F%2Fwww.cs.cinvestav.mx%2F~constraint%2Fpapers%2Fcagnina08a.pdf&amp;usg=AOvVaw280HGdnm4_OpF-aDb19AY2">Cagnina</a>, <a href="https://dl.acm.org/citation.cfm?id=1660493">Liu et al.</a>) the problem is referred as &ldquo;Minimization of the Weight of a Tension/Compression String&rdquo;. I did not know it was some some sort of standard example, used in many papers on optimization. The equations are relatively simple. The problem is to minimize
+        <p>I spent the last week-end to review a paper for the journal <a href="https://www.journals.elsevier.com/expert-systems-with-applications">Expert Systems with Applications</a>. It was a paper on a variant of Spider Monkey Optimization, which is in the same spirit as differential evolution or particle swarm optimization. Yes, it could be added to the list of esoteric optimizers at the end of this <a href="../particle_swarm_optimization_heston_calibration/">Quants R Us post</a>.</p>
+<p>While the manuscript was relatively interesting in itself, and there was definitely some non-trivial amount of work behind it, it was riddled with errors: in the equations, in the algorithms, in the text, in the examples. Some were easy to spot, others not so much. One of the examples is the &ldquo;Design of Coil Springs&rdquo; originally presented in J. Arora book <a href="https://www.amazon.com/Introduction-Optimum-Design-Fourth-Jasbir/dp/0128008067/ref=sr_1_fkmr1_1?s=books&amp;ie=UTF8&amp;qid=1519982488&amp;sr=1-1-fkmr1&amp;keywords=introduction+to+optimum+design+aurora">Introduction to Optimum Design</a> (nice book, which can also have applications in finance: optimum design and optimum collateral allocation are not very different). In various papers (<a href="https://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwiy7u_sqc3ZAhUBPBQKHUHBAogQFgg2MAE&amp;url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.324.3199%26rep%3Drep1%26type%3Dpdf&amp;usg=AOvVaw2zY-0YnxhRwvHtQUcxAfME">Mezura-Montes &amp; Coello</a>, <a href="https://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwiqgum9qM3ZAhUBnxQKHdwRB0sQFgg2MAE&amp;url=https%3A%2F%2Fwww.cs.cinvestav.mx%2F~constraint%2Fpapers%2Fcagnina08a.pdf&amp;usg=AOvVaw280HGdnm4_OpF-aDb19AY2">Cagnina</a>, <a href="https://dl.acm.org/citation.cfm?id=1660493">Liu et al.</a>) the problem is referred as &ldquo;Minimization of the Weight of a Tension/Compression String&rdquo;. I did not know it was some some sort of standard example, used in many papers on optimization. The equations are relatively simple. The problem is to minimize
 $$ f(x_1,x_2,x_3) = (x_3+2)x_2 x_1^2 $$
 subject to
 $$ g_1(x_1,x_2,x_3) = 1 - \frac{x_2^3 x_3}{71785 x_1^4} \leq 0 $$
@@ -386,7 +386,7 @@ with \( 0.05 \leq x_1 \leq 2, 0.25 \leq x_2 \leq 1.3, 2 \leq x_3 \leq 15 \)</p>
     </p>
     <div class="post-entry">
         
-        <p>This is a sequel to my <a href="particle_swarm_optimization">previous post on Particle Swarm Optimization</a>. Here, I look at the problem of &ldquo;calibrating&rdquo;
+        <p>This is a sequel to my <a href="../particle_swarm_optimization">previous post on Particle Swarm Optimization</a>. Here, I look at the problem of &ldquo;calibrating&rdquo;
 a Heston small-time expansion, the one from <a href="http://www2.imperial.ac.uk/~ajacquie/index_files/Forde,%20Jacquier%20-%20Small-time%20asymptotics%20for%20implied%20volatility%20under%20the%20Heston%20model.pdf">Forde &amp; Jacquier</a>). This can be useful to find a good initial guess for the exact
 Heston calibration, computed with much costlier characteristic function Fourier numerical integration.</p>
 <p>Unfortunately, as we see below, with the contour plots of the objective function
@@ -397,9 +397,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="forde_3d.png" alt="forde_3d.png"/>
+       <img itemprop="thumbnail" src="../forde_3d.png" alt="../forde_3d.png"/>
      </div>
-     <a href="forde_3d.png" itemprop="contentUrl"></a>
+     <a href="../forde_3d.png" itemprop="contentUrl"></a>
        <figcaption><h4>RMSE of the small-time Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho.</h4>
        </figcaption>
    </figure>
@@ -410,9 +410,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="forde_contour.png" alt="forde_contour.png"/>
+       <img itemprop="thumbnail" src="../forde_contour.png" alt="../forde_contour.png"/>
      </div>
-     <a href="forde_contour.png" itemprop="contentUrl"></a>
+     <a href="../forde_contour.png" itemprop="contentUrl"></a>
        <figcaption><h4>contour plot of the small-time RMSE</h4>
        </figcaption>
    </figure>
@@ -423,9 +423,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="flinn_3d.png" alt="flinn_3d.png"/>
+       <img itemprop="thumbnail" src="../flinn_3d.png" alt="../flinn_3d.png"/>
      </div>
-     <a href="flinn_3d.png" itemprop="contentUrl"></a>
+     <a href="../flinn_3d.png" itemprop="contentUrl"></a>
        <figcaption><h4>RMSE of the Fourier-based Heston implied volatilities against SPX500 options volatilities in 1995 using v_0=0.009527, theta= 0.02318, sigma= 0.92745 and varying kappa and rho.</h4>
        </figcaption>
    </figure>
@@ -436,9 +436,9 @@ than with the numerical integration.
  <div class="box" >
    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
      <div class="img">
-       <img itemprop="thumbnail" src="flinn_contour.png" alt="flinn_contour.png"/>
+       <img itemprop="thumbnail" src="../flinn_contour.png" alt="../flinn_contour.png"/>
      </div>
-     <a href="flinn_contour.png" itemprop="contentUrl"></a>
+     <a href="../flinn_contour.png" itemprop="contentUrl"></a>
        <figcaption><h4>contour plot of the Fourier-based (nearly exact) RMSE</h4>
        </figcaption>
    </figure>
