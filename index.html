@@ -46,7 +46,7 @@
   <meta name="twitter:site" content="@JherekHealy" />
   <meta name="twitter:creator" content="@JherekHealy" />
   <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.156.0">
+  <meta name="generator" content="Hugo 0.165.0">
   <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
@@ -215,6 +215,45 @@
 
         <div class="posts-list">
           
+          
+            <article class="post-preview">
+    <a href="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension/">
+        <h2 class="post-title">Burley Scrambling Beyond the Fourth Dimension</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 24, 2026
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: <em>Practical Hash-based Owen Scrambling</em>, JCGT vol. 9, no. 4, 2020 [1].</p>
+<p>Before that paper, the standard reference for scrambling low-discrepancy sequences was ACM Algorithm 823 by Hong and Hickernell [2], which is slower and only <em>approximates</em> Owen&rsquo;s nested uniform scrambling. To keep memory and computation bounded, it uses Matoušek&rsquo;s nested-linear approximation (affine permutations of the form <code>A · x + C mod b</code>) rather than a fully independent random permutation at every node of the digit tree [3].</p>
+        <a href="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/open_source_quality/">
@@ -616,55 +655,6 @@ I believe this corresponds to the algorithm described in section 3 of the paper 
 
 </article>
           
-            <article class="post-preview">
-    <a href="https://jherekhealy.github.io/blog/post/state_of_convex_quadratic_programming_solvers/">
-        <h2 class="post-title">The state of open-source quadratic programming convex optimizers</h2>
-        
-        <h3 class="post-subtitle">
-            I explore here a few open-source optimizers on a relatively simple problem of finding a good convex subset, but with many constraints: 30104 constraints for essentially 174 variables. My particular problem can be easily expressed in the form of a quadratic programming problem.
-        </h3>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on July 24, 2018
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>I explore here a few open-source optimizers on a relatively simple problem of finding a good convex subset, but with many constraints:
-30104 constraints for essentially 174 variables. My particular problem can be easily expressed in the form of a <a href="https://en.wikipedia.org/wiki/Quadratic_programming">quadratic programming problem</a>.</p>
-<h2 id="java">Java</h2>
-<ol>
-<li>Ojalgo: very difficult to setup properly in the absence of documentation for convex minimization. I suspect it does not work well, as it has a tendency to never finish. Don&rsquo;t waste your time on this.</li>
-<li>JOptimizer: much better documentation, but the algorithms seem very primitive, and can&rsquo;t solve my problem with a relatively large number of variables as it keeps complaining on KKT solution failed. It worked when I truncated the problem to 4 variables.</li>
-</ol>
-<p>I could not find much else. It is quite surprising that the state of optimizers is so poor in Java, given that it is one of the most used languages in the enterprise.</p>
-        <a href="https://jherekhealy.github.io/blog/post/state_of_convex_quadratic_programming_solvers/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
         </div>
 
         
@@ -757,7 +747,7 @@ I believe this corresponds to the algorithm described in section 3 of the paper 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

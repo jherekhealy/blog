@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@JherekHealy" />
   <meta name="twitter:creator" content="@JherekHealy" />
   <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.156.0">
+  <meta name="generator" content="Hugo 0.165.0">
   <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
@@ -302,40 +302,40 @@ With this in mind and the need for the temperature to decrease, it appears that 
 With those settings, the RMSE becomes 1.22E-2 and the parameters are much more moderate \( v_0 =0.0123858333, \kappa = 2.9627864991, \theta=0.0237545288, \sigma= 0.5081900883, \rho=-0.6414988464\).</p>
 <p>It is then competitive to differential evolution with a population    NP = 10, a frequency F = 0.9 and a crossover rate CR = 0.5.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Minimizer</th>
-          <th style="text-align: right">RMSE</th>
-          <th style="text-align: right">v0</th>
-          <th style="text-align: right">kappa</th>
-          <th style="text-align: right">theta</th>
-          <th style="text-align: right">sigma</th>
-          <th style="text-align: right">rho</th>
-          <th style="text-align: right">time(s)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>DE</td>
-          <td style="text-align: right">1.201569e-02</td>
-          <td style="text-align: right">0.0132292369</td>
-          <td style="text-align: right">2.2958411359</td>
-          <td style="text-align: right">0.0241039435</td>
-          <td style="text-align: right">0.4283830267</td>
-          <td style="text-align: right">-0.6458778100</td>
-          <td style="text-align: right">3.65</td>
-      </tr>
-      <tr>
-          <td>SA</td>
-          <td style="text-align: right">1.222159e-02</td>
-          <td style="text-align: right">0.0123858333</td>
-          <td style="text-align: right">2.9627864991</td>
-          <td style="text-align: right">0.0237545288</td>
-          <td style="text-align: right">0.5081900883</td>
-          <td style="text-align: right">-0.6414988464</td>
-          <td style="text-align: right">3.63</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Minimizer</th>
+					<th style="text-align: right">RMSE</th>
+					<th style="text-align: right">v0</th>
+					<th style="text-align: right">kappa</th>
+					<th style="text-align: right">theta</th>
+					<th style="text-align: right">sigma</th>
+					<th style="text-align: right">rho</th>
+					<th style="text-align: right">time(s)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>DE</td>
+					<td style="text-align: right">1.201569e-02</td>
+					<td style="text-align: right">0.0132292369</td>
+					<td style="text-align: right">2.2958411359</td>
+					<td style="text-align: right">0.0241039435</td>
+					<td style="text-align: right">0.4283830267</td>
+					<td style="text-align: right">-0.6458778100</td>
+					<td style="text-align: right">3.65</td>
+			</tr>
+			<tr>
+					<td>SA</td>
+					<td style="text-align: right">1.222159e-02</td>
+					<td style="text-align: right">0.0123858333</td>
+					<td style="text-align: right">2.9627864991</td>
+					<td style="text-align: right">0.0237545288</td>
+					<td style="text-align: right">0.5081900883</td>
+					<td style="text-align: right">-0.6414988464</td>
+					<td style="text-align: right">3.63</td>
+			</tr>
+	</tbody>
 </table>
 <p>At the end of the day, simulated annealing can work well for Heston calibration. On some better behaved calibration problems, it is often faster and more accurate than DE (although I am sure one could tune
 the DE or SA parameters a bit better). The settings have a drastic impact, and tuning the settings is only possible with an understanding the algorithm (i.e. by using a simple algorithm).</p>
@@ -497,7 +497,7 @@ the DE or SA parameters a bit better). The settings have a drastic impact, and t
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

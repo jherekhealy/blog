@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@JherekHealy" />
   <meta name="twitter:creator" content="@JherekHealy" />
   <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.156.0">
+  <meta name="generator" content="Hugo 0.165.0">
   <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
@@ -320,75 +320,75 @@ $$ \min \frac{1}{2} x^t Q x - p^t x,. $$</p>
 <h2 id="summary">Summary</h2>
 <p>Here are the results sorted in ascending solving time:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Solver</th>
-          <th style="text-align: right">Time(s)</th>
-          <th style="text-align: right">Objective</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Scilab-solve_qp sparse</td>
-          <td style="text-align: right">0.2</td>
-          <td style="text-align: right">4.5E-5</td>
-      </tr>
-      <tr>
-          <td>CVXPY-ECOS-sparse</td>
-          <td style="text-align: right">0.9</td>
-          <td style="text-align: right">4.5E-5</td>
-      </tr>
-      <tr>
-          <td>CVXOPT-sparse</td>
-          <td style="text-align: right">4</td>
-          <td style="text-align: right">5.5E-5</td>
-      </tr>
-      <tr>
-          <td>Scilab-solveqp</td>
-          <td style="text-align: right">5</td>
-          <td style="text-align: right">4.5E-5</td>
-      </tr>
-      <tr>
-          <td>CVXPY-OSQP*-sparse</td>
-          <td style="text-align: right">8</td>
-          <td style="text-align: right">1.5E-4</td>
-      </tr>
-      <tr>
-          <td>OSQP-sparse</td>
-          <td style="text-align: right">25</td>
-          <td style="text-align: right">6.8E-5</td>
-      </tr>
-      <tr>
-          <td>CVXPY-ECOS</td>
-          <td style="text-align: right">50</td>
-          <td style="text-align: right">4.5E-5</td>
-      </tr>
-      <tr>
-          <td>CVXPY-default</td>
-          <td style="text-align: right">55</td>
-          <td style="text-align: right">not within constraints</td>
-      </tr>
-      <tr>
-          <td>CVXPY-OSQP*</td>
-          <td style="text-align: right">70</td>
-          <td style="text-align: right">1.5E-4</td>
-      </tr>
-      <tr>
-          <td>CVXPY-SCS-sparse</td>
-          <td style="text-align: right">175</td>
-          <td style="text-align: right">4.4E-5</td>
-      </tr>
-      <tr>
-          <td>CVXPY-SCS</td>
-          <td style="text-align: right">200</td>
-          <td style="text-align: right">4.4E-5</td>
-      </tr>
-      <tr>
-          <td>CVXPY-CVXOPT-sparse</td>
-          <td style="text-align: right">breaks</td>
-          <td style="text-align: right">N/A</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Solver</th>
+					<th style="text-align: right">Time(s)</th>
+					<th style="text-align: right">Objective</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Scilab-solve_qp sparse</td>
+					<td style="text-align: right">0.2</td>
+					<td style="text-align: right">4.5E-5</td>
+			</tr>
+			<tr>
+					<td>CVXPY-ECOS-sparse</td>
+					<td style="text-align: right">0.9</td>
+					<td style="text-align: right">4.5E-5</td>
+			</tr>
+			<tr>
+					<td>CVXOPT-sparse</td>
+					<td style="text-align: right">4</td>
+					<td style="text-align: right">5.5E-5</td>
+			</tr>
+			<tr>
+					<td>Scilab-solveqp</td>
+					<td style="text-align: right">5</td>
+					<td style="text-align: right">4.5E-5</td>
+			</tr>
+			<tr>
+					<td>CVXPY-OSQP*-sparse</td>
+					<td style="text-align: right">8</td>
+					<td style="text-align: right">1.5E-4</td>
+			</tr>
+			<tr>
+					<td>OSQP-sparse</td>
+					<td style="text-align: right">25</td>
+					<td style="text-align: right">6.8E-5</td>
+			</tr>
+			<tr>
+					<td>CVXPY-ECOS</td>
+					<td style="text-align: right">50</td>
+					<td style="text-align: right">4.5E-5</td>
+			</tr>
+			<tr>
+					<td>CVXPY-default</td>
+					<td style="text-align: right">55</td>
+					<td style="text-align: right">not within constraints</td>
+			</tr>
+			<tr>
+					<td>CVXPY-OSQP*</td>
+					<td style="text-align: right">70</td>
+					<td style="text-align: right">1.5E-4</td>
+			</tr>
+			<tr>
+					<td>CVXPY-SCS-sparse</td>
+					<td style="text-align: right">175</td>
+					<td style="text-align: right">4.4E-5</td>
+			</tr>
+			<tr>
+					<td>CVXPY-SCS</td>
+					<td style="text-align: right">200</td>
+					<td style="text-align: right">4.4E-5</td>
+			</tr>
+			<tr>
+					<td>CVXPY-CVXOPT-sparse</td>
+					<td style="text-align: right">breaks</td>
+					<td style="text-align: right">N/A</td>
+			</tr>
+	</tbody>
 </table>
 <p>From Python, the optimizers are of much higher quality. It is not too surprising since they are often written in close collaboration with universities and researchers in the field.</p>
 <p>Scilab looks really from another century (a slow Java GUI), and the project is really redundant with Octave. I wish they would both work on the same code base and produce something of higher quality. Clearly, they have lost ground against Python, especially with the IPython/Jupiter notebooks.</p>
@@ -549,7 +549,7 @@ $$ \min \frac{1}{2} x^t Q x - p^t x,. $$</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

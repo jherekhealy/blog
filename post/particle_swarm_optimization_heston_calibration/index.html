@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@JherekHealy" />
   <meta name="twitter:creator" content="@JherekHealy" />
   <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.156.0">
+  <meta name="generator" content="Hugo 0.165.0">
   <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
@@ -361,58 +361,58 @@ but with another choice of seed, it might not perform as well. In order to remov
 with different seeds (I jump to a far away point 100 times instead of simply picking 100 different random seeds) and compute the mean and the standard error for each minimizer.</p>
 <p>I consider different settings for each minimizer. The table below shows the best contenders among many different settings tried.</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Minimizer</th>
-          <th style="text-align: right">Mean failures (Std error)</th>
-          <th style="text-align: right">Min</th>
-          <th style="text-align: right">Max</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">DE NP=30 F=0.8 CR=0.6  Rand1EitherOr</td>
-          <td style="text-align: right">1.54 (0.10)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">4</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">DE NP=30 F=0.7 CR=0.7  Rand1Bin</td>
-          <td style="text-align: right">2.84 (0.10)</td>
-          <td style="text-align: right">2</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">DE NP=30 F=0.8 CR=0.7 Best1Bin</td>
-          <td style="text-align: right">3.74 (0.15)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">6</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">SA T=1 RT=0.8 NS=4 NT=20</td>
-          <td style="text-align: right">2.02 (0.13)</td>
-          <td style="text-align: right">0</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO S=100 von Neumann c1=c2=2.02 PhiEnd=2*2.2</td>
-          <td style="text-align: right">2.72 (0.13)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO S=81 von Neumann c1=c2=2.02  PhiEnd=2*2.2</td>
-          <td style="text-align: right">3.00 (0.16)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO S=49 von Neumann c1=c2=2.02  PhiEnd=2*2.2</td>
-          <td style="text-align: right">3.84 (0.16)</td>
-          <td style="text-align: right">2</td>
-          <td style="text-align: right">6</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Minimizer</th>
+					<th style="text-align: right">Mean failures (Std error)</th>
+					<th style="text-align: right">Min</th>
+					<th style="text-align: right">Max</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">DE NP=30 F=0.8 CR=0.6  Rand1EitherOr</td>
+					<td style="text-align: right">1.54 (0.10)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">4</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">DE NP=30 F=0.7 CR=0.7  Rand1Bin</td>
+					<td style="text-align: right">2.84 (0.10)</td>
+					<td style="text-align: right">2</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">DE NP=30 F=0.8 CR=0.7 Best1Bin</td>
+					<td style="text-align: right">3.74 (0.15)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">6</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">SA T=1 RT=0.8 NS=4 NT=20</td>
+					<td style="text-align: right">2.02 (0.13)</td>
+					<td style="text-align: right">0</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO S=100 von Neumann c1=c2=2.02 PhiEnd=2*2.2</td>
+					<td style="text-align: right">2.72 (0.13)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO S=81 von Neumann c1=c2=2.02  PhiEnd=2*2.2</td>
+					<td style="text-align: right">3.00 (0.16)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO S=49 von Neumann c1=c2=2.02  PhiEnd=2*2.2</td>
+					<td style="text-align: right">3.84 (0.16)</td>
+					<td style="text-align: right">2</td>
+					<td style="text-align: right">6</td>
+			</tr>
+	</tbody>
 </table>
 <p>In the PSO, the particle can go beyond the boundaries, what to do then?</p>
 <ul>
@@ -422,92 +422,92 @@ with different seeds (I jump to a far away point 100 times instead of simply pic
 the paper <a href="http://www.aifb.kit.edu/images/f/f7/FL.pdf">&ldquo;Analyzing the Effects of Bound Handling in Particle Swarm Optimization&rdquo;</a>.</li>
 </ul>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Minimizer</th>
-          <th style="text-align: right">Mean failures (Std error)</th>
-          <th style="text-align: right">Min</th>
-          <th style="text-align: right">Max</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Reflect-Z with S=100</td>
-          <td style="text-align: right">2.46 (0.12)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">4</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Reflect-Z with S=81</td>
-          <td style="text-align: right">2.54 (0.13)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Infinity  with S=100</td>
-          <td style="text-align: right">2.72 (0.13)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Infinity with S=81</td>
-          <td style="text-align: right">3.00 (0.16)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">5</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Nearest-Z with S=100</td>
-          <td style="text-align: right">3.04 (0.15)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">6</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Nearest-Z with S=81</td>
-          <td style="text-align: right">3.42 (0.17)</td>
-          <td style="text-align: right">1</td>
-          <td style="text-align: right">6</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Minimizer</th>
+					<th style="text-align: right">Mean failures (Std error)</th>
+					<th style="text-align: right">Min</th>
+					<th style="text-align: right">Max</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">Reflect-Z with S=100</td>
+					<td style="text-align: right">2.46 (0.12)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">4</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Reflect-Z with S=81</td>
+					<td style="text-align: right">2.54 (0.13)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Infinity  with S=100</td>
+					<td style="text-align: right">2.72 (0.13)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Infinity with S=81</td>
+					<td style="text-align: right">3.00 (0.16)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">5</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Nearest-Z with S=100</td>
+					<td style="text-align: right">3.04 (0.15)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">6</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Nearest-Z with S=81</td>
+					<td style="text-align: right">3.42 (0.17)</td>
+					<td style="text-align: right">1</td>
+					<td style="text-align: right">6</td>
+			</tr>
+	</tbody>
 </table>
 <p>PSO is not only less robust in general, it is also slower with the settings chosen (a smaller swarm size would increases the failures even more).
 Here is a table with the time needed to calibrate the minimizers with the best settings above against all the quotes in 1995:</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Minimizer</th>
-          <th style="text-align: right">Time(ms)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">DE Best1Bin</td>
-          <td style="text-align: right">156</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">DE Rand1EitherOr</td>
-          <td style="text-align: right">267</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">DE Rand1Bin</td>
-          <td style="text-align: right">314</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">SA</td>
-          <td style="text-align: right">427</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO S=100</td>
-          <td style="text-align: right">581</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO S=81</td>
-          <td style="text-align: right">790</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO S=49</td>
-          <td style="text-align: right">378</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Minimizer</th>
+					<th style="text-align: right">Time(ms)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">DE Best1Bin</td>
+					<td style="text-align: right">156</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">DE Rand1EitherOr</td>
+					<td style="text-align: right">267</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">DE Rand1Bin</td>
+					<td style="text-align: right">314</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">SA</td>
+					<td style="text-align: right">427</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO S=100</td>
+					<td style="text-align: right">581</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO S=81</td>
+					<td style="text-align: right">790</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO S=49</td>
+					<td style="text-align: right">378</td>
+			</tr>
+	</tbody>
 </table>
 <p>The time is however only indicative since it will be highly dependent on the stopping criteria, and each method use a different stopping criteria.</p>
 <p>Matt Lorig et al. provide <a href="https://arxiv.org/pdf/1306.5447">two different small-time Heston expansions</a> of order 2 and 3. Interestingly, they behave quite well on our example as evidenced by the 3d graph and the contour plot of
@@ -540,34 +540,34 @@ the RMSE below.
 </p>
 <p>The global minimizers can then use more agressive settings, that is ones that will converge faster (with the risk of being stuck in a local minimum more frequently).</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Minimizer</th>
-          <th style="text-align: right">Mean failures (Std error)</th>
-          <th style="text-align: right">Min</th>
-          <th style="text-align: right">Max</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">DE  NP=15 F=0.9 CR=0.5 Best1Bin</td>
-          <td style="text-align: right">0.24 (0.07)</td>
-          <td style="text-align: right">0</td>
-          <td style="text-align: right">2</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">SA  T=1 RT=0.9 NS=3 NT=15</td>
-          <td style="text-align: right">0.28 (0.06)</td>
-          <td style="text-align: right">0</td>
-          <td style="text-align: right">1</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">PSO  S=49 von Neumann  c1=c2=2.02 PhiEnd=4.4</td>
-          <td style="text-align: right">0.08 (0.04)</td>
-          <td style="text-align: right">0</td>
-          <td style="text-align: right">1</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Minimizer</th>
+					<th style="text-align: right">Mean failures (Std error)</th>
+					<th style="text-align: right">Min</th>
+					<th style="text-align: right">Max</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">DE  NP=15 F=0.9 CR=0.5 Best1Bin</td>
+					<td style="text-align: right">0.24 (0.07)</td>
+					<td style="text-align: right">0</td>
+					<td style="text-align: right">2</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">SA  T=1 RT=0.9 NS=3 NT=15</td>
+					<td style="text-align: right">0.28 (0.06)</td>
+					<td style="text-align: right">0</td>
+					<td style="text-align: right">1</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">PSO  S=49 von Neumann  c1=c2=2.02 PhiEnd=4.4</td>
+					<td style="text-align: right">0.08 (0.04)</td>
+					<td style="text-align: right">0</td>
+					<td style="text-align: right">1</td>
+			</tr>
+	</tbody>
 </table>
 <p>To conclude, PSO can work to calibrate Heston even if it tends to struggle on more complex problems.
 I however found differential evolution and to some extent simulated annealing
@@ -736,7 +736,7 @@ that its inventor is linked to the <a href="https://en.wikipedia.org/wiki/Allais
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

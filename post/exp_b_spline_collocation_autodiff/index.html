@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@JherekHealy" />
   <meta name="twitter:creator" content="@JherekHealy" />
   <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.156.0">
+  <meta name="generator" content="Hugo 0.165.0">
   <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
@@ -317,26 +317,26 @@
 </div>
 
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Method</th>
-          <th style="text-align: right">RMSE in implied vol %</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Polynomial degree 7</td>
-          <td style="text-align: right">5.099</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Exponential B-spline lambda=0</td>
-          <td style="text-align: right">0.012</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Exponential B-spline lambda=1e-2</td>
-          <td style="text-align: right">0.050</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Method</th>
+					<th style="text-align: right">RMSE in implied vol %</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">Polynomial degree 7</td>
+					<td style="text-align: right">5.099</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Exponential B-spline lambda=0</td>
+					<td style="text-align: right">0.012</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Exponential B-spline lambda=1e-2</td>
+					<td style="text-align: right">0.050</td>
+			</tr>
+	</tbody>
 </table>
 <p>On real market data, it may be advantageous to use Gauss-Hermite nodes instead of the raw market implied nodes. With the same regularization (1e-2), and the same number of nodes, this leads to a very smooth implied density for the example of TSLA options of 18m maturity, much smoother than with the raw nodes without sacrifying too much accuracy. This is because the raw nodes are too close to each other when there are a lot of market observations and too far when there are few market observations.</p>
 
@@ -353,30 +353,30 @@
 </div>
 
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Method</th>
-          <th style="text-align: right">RMSE in implied vol %</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Polynomial degree 7</td>
-          <td style="text-align: right">1.31</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Polynomial degree 11</td>
-          <td style="text-align: right">0.93</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Exponential B-spline lambda=0</td>
-          <td style="text-align: right">0.35</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Exponential B-spline lambda=1e-2</td>
-          <td style="text-align: right">0.36</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: left">Method</th>
+					<th style="text-align: right">RMSE in implied vol %</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">Polynomial degree 7</td>
+					<td style="text-align: right">1.31</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Polynomial degree 11</td>
+					<td style="text-align: right">0.93</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Exponential B-spline lambda=0</td>
+					<td style="text-align: right">0.35</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Exponential B-spline lambda=1e-2</td>
+					<td style="text-align: right">0.36</td>
+			</tr>
+	</tbody>
 </table>
 
 
@@ -535,7 +535,7 @@
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

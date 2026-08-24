@@ -99,7 +99,7 @@
   <meta name="twitter:site" content="@JherekHealy" />
   <meta name="twitter:creator" content="@JherekHealy" />
   <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.156.0">
+  <meta name="generator" content="Hugo 0.165.0">
   <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
   <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
@@ -285,20 +285,20 @@
 <p>For the <a href="https://mpra.ub.uni-muenchen.de/9319/1/MPRA_paper_9319.pdf">Cos method</a> of Fang and Oosterlee, I actually had already <a href="https://github.com/jherekhealy/CharFuncPricing.jl">written some code</a> in Julia, to provide an implementation that supports arbitrary precision. Recently, I was reviewing some of the book content on vanilla option pricing under the Heston stochastic volatility model, to make it more up-to-date. I noticed that my Go implementation of the Cos method was much faster than the timing I had presented in the book (coming from yet another implementation, in another language), likely because of CPU improvements, but also because the Go language handles complex numbers relatively efficiently. Well, it turns out that Julia is of the same speed.</p>
 <p>To price 100 options under the same Heston parameters, using 200 points, I obtain the following timing</p>
 <table>
-  <thead>
-      <tr>
-          <th>Old implementation</th>
-          <th>Go</th>
-          <th>Julia</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>3000 microsec.</td>
-          <td>558 microsec.</td>
-          <td>560 microsec.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Old implementation</th>
+					<th>Go</th>
+					<th>Julia</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>3000 microsec.</td>
+					<td>558 microsec.</td>
+					<td>560 microsec.</td>
+			</tr>
+	</tbody>
 </table>
 <p>To price a single option, discarding the setup time, the Cos method takes only 5 microseconds. I thought that was quite impressive, even if this is a bit cheating since the expensive part is the characteristic function evaluation, which happens in the setup phase for the option maturity in question.</p>
 <p>I also found a nice rough but simple rule to imply the number of points for a given accuracy. This, and the simplicity of the implementation make the Cos method quite attractive.</p>
@@ -459,7 +459,7 @@
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.156.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

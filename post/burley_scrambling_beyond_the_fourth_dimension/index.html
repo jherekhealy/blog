@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Burley Scrambling Beyond the Fourth Dimension - </title>
+
+  <meta name="description" content="Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: Practical Hash-based Owen Scrambling, JCGT vol. 9, no. 4, 2020 [1].
+Before that paper, the standard reference for scrambling low-discrepancy sequences was ACM Algorithm 823 by Hong and Hickernell [2], which is slower and only approximates Owen&rsquo;s nested uniform scrambling. To keep memory and computation bounded, it uses Matoušek&rsquo;s nested-linear approximation (affine permutations of the form A · x &#43; C mod b) rather than a fully independent random permutation at every node of the digit tree [3].">
+  <meta name="author" content="Jherek Healy"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Jherek\u0027s Blog",
+    
+    "url": "https:\/\/jherekhealy.github.io\/blog\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/jherekhealy.github.io\/blog\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/jherekhealy.github.io\/blog\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/jherekhealy.github.io\/blog\/post\/burley_scrambling_beyond_the_fourth_dimension\/",
+          "name": "Burley scrambling beyond the fourth dimension"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Jherek Healy"
+  },
+  "headline": "Burley Scrambling Beyond the Fourth Dimension",
+  "description" : "Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: Practical Hash-based Owen Scrambling, JCGT vol. 9, no. 4, 2020 [1].\nBefore that paper, the standard reference for scrambling low-discrepancy sequences was ACM Algorithm 823 by Hong and Hickernell [2], which is slower and only approximates Owen\u0026rsquo;s nested uniform scrambling. To keep memory and computation bounded, it uses Matoušek\u0026rsquo;s nested-linear approximation (affine permutations of the form A · x \u002b C mod b) rather than a fully independent random permutation at every node of the digit tree [3].\n",
+  "inLanguage" : "en",
+  "wordCount":  941 ,
+  "datePublished" : "2026-08-24T00:00:00\u002b00:00",
+  "dateModified" : "2026-08-24T00:00:00\u002b00:00",
+  "image" : "https:\/\/jherekhealy.github.io\/blog\/images\/avatar@2x.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/jherekhealy.github.io\/blog\/post\/burley_scrambling_beyond_the_fourth_dimension\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/jherekhealy.github.io\/blog\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/jherekhealy.github.io\/blog\/images\/avatar@2x.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Burley Scrambling Beyond the Fourth Dimension" />
+<meta property="og:description" content="Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: Practical Hash-based Owen Scrambling, JCGT vol. 9, no. 4, 2020 [1].
+Before that paper, the standard reference for scrambling low-discrepancy sequences was ACM Algorithm 823 by Hong and Hickernell [2], which is slower and only approximates Owen&rsquo;s nested uniform scrambling. To keep memory and computation bounded, it uses Matoušek&rsquo;s nested-linear approximation (affine permutations of the form A · x &#43; C mod b) rather than a fully independent random permutation at every node of the digit tree [3].">
+<meta property="og:image" content="https://jherekhealy.github.io/blog/images/avatar@2x.png" />
+<meta property="og:url" content="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Jherek&#39;s Blog" />
+
+  <meta name="twitter:title" content="Burley Scrambling Beyond the Fourth Dimension" />
+  <meta name="twitter:description" content="Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: Practical Hash-based Owen …">
+  <meta name="twitter:image" content="https://jherekhealy.github.io/blog/images/avatar@2x.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@JherekHealy" />
+  <meta name="twitter:creator" content="@JherekHealy" />
+  <link href='https://jherekhealy.github.io/blog/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.165.0">
+  <link rel="alternate" href="https://jherekhealy.github.io/blog/index.xml" type="application/rss+xml" title="Jherek&#39;s Blog"><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/katex.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/brands.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/regular.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/svg.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/svg-with-js.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/v4-font-face.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/v4-shims.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/fontawesome/css/v5-font-face.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/bootstrap.min.css" /><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/main.css" /><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/fonts.css" /><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/syntax.css" /><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/codeblock.css" /><link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/photoswipe.min.css" />
+  <link rel="stylesheet" href="https://jherekhealy.github.io/blog/css/photoswipe.default-skin.min.css" />
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://jherekhealy.github.io/blog/">Jherek&#39;s Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/blog/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="My book" href="http://jherekhealy.github.io/">My book</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/blog/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Jherek&#39;s Blog" href="https://jherekhealy.github.io/blog/">
+            <img class="avatar-img" src="https://jherekhealy.github.io/blog/images/avatar@2x_hu_e756b14c1b5940aa.webp" alt="Jherek&#39;s Blog" />
+          
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Burley Scrambling Beyond the Fourth Dimension</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 24, 2026
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: <em>Practical Hash-based Owen Scrambling</em>, JCGT vol. 9, no. 4, 2020 [1].</p>
+<p>Before that paper, the standard reference for scrambling low-discrepancy sequences was ACM Algorithm 823 by Hong and Hickernell [2], which is slower and only <em>approximates</em> Owen&rsquo;s nested uniform scrambling. To keep memory and computation bounded, it uses Matoušek&rsquo;s nested-linear approximation (affine permutations of the form <code>A · x + C mod b</code>) rather than a fully independent random permutation at every node of the digit tree [3].</p>
+<p>Burley&rsquo;s contribution was to show that a chain of multiply-XOR operations—the Laine–Karras hash, applied to a bit-reversed input—reproduces an exact nested uniform (Owen) permutation in base two, cheaply and without any precomputed table.</p>
+<h2 id="why-four-dimensions">Why four dimensions?</h2>
+<p>Because Burley&rsquo;s use case is path-traced rendering, the paper and its reference code are built natively around <strong>four dimensions at a time</strong>: two for the pixel position and two for the lens (depth-of-field) sample.</p>
+<p>The paper is explicit that this is a deliberate choice. With the sample counts typical in graphics—a few thousand samples per pixel at most—there is little benefit to a genuinely high-dimensional Sobol construction, since the <em>t</em>-value of the Sobol sequence grows quickly with dimension:</p>
+<ul>
+<li><em>t</em> = 3 at 4D</li>
+<li><em>t</em> = 5 at 5D</li>
+<li><em>t</em> = 8–23 at 6–10D</li>
+</ul>
+<p>This pushes the sample count needed to see the improved convergence rate toward \(2^{t \cdot s}\) [1, Section 2.3], where <em>s</em> is the dimension.</p>
+<p>For 4D, this corresponds to 4,196 samples, but for 5D it is over 33 million samples.</p>
+<p>So instead of extending the Sobol matrices themselves to more dimensions, the paper proposes <strong>padding</strong>: reuse the same low-dimensional (here, 4D) Sobol construction for every group of dimensions, and decorrelate each group from the others with a different seed.</p>
+<h2 id="the-core-algorithm">The core algorithm</h2>
+<p>Here is the code central to Burley&rsquo;s algorithm:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">shuffled_scrambled_sobol4d</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">index</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">seed</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                       <span class="kt">uint32_t</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">index</span> <span class="o">=</span> <span class="nf">nested_uniform_scramble_base2</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">seed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">sobol4d</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">nested_uniform_scramble_base2</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nf">hash_combine</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>There are three steps:</p>
+<ol>
+<li>
+<p><strong>Shuffle the sample index.</strong>
+<code>nested_uniform_scramble_base2(index, seed)</code> applies the Laine–Karras permutation, bit-reversed, to the <em>index</em> rather than to a sample value. This is a nested-uniform <em>shuffle</em> of the sample order, decorrelating which physical index maps to which point in the sequence. It uses one arbitrary seed.</p>
+</li>
+<li>
+<p><strong>Generate the point.</strong>
+Look up (or compute) the 4D Sobol point at the shuffled index.</p>
+</li>
+<li>
+<p><strong>Scramble each coordinate.</strong>
+Apply <code>nested_uniform_scramble_base2</code> again, this time to each of the four output values, using a separate seed for each coordinate derived from <code>hash_combine(seed, i)</code>.</p>
+</li>
+</ol>
+<h2 id="padding-beyond-four-dimensions">Padding beyond four dimensions</h2>
+<p>For dimensions beyond four, the paper&rsquo;s recipe is simple [1, Section 4]:</p>
+<blockquote>
+<p>&ldquo;one merely needs to supply a different seed to each group of four dimensions&rdquo;</p>
+</blockquote>
+<p>In other words, for <em>D</em> dimensions, draw (D/4) independent random integers and use one seed for each group of four dimensions.</p>
+<p>This is essentially the approach taken in QuantLib&rsquo;s implementation of Burley&rsquo;s algorithm, <code>Burley2020SobolRsg</code>, contributed by Peter Caspers [4, 5].</p>
+<p>QuantLib generates its scrambling seeds from a Mersenne Twister at initialization time. The seeds are then fixed for the lifetime of the generator and used to key the Laine–Karras/nested-scramble step for the index shuffle and for each dimension.</p>
+<h2 id="an-independent-seed-per-dimension">An independent seed per dimension</h2>
+<p>A different approach, briefly described on the Chase the Devil blog [6], is to draw <strong>D + 1 independent random integers</strong> up front from an ordinary, well-tested PRNG: one seed to shuffle the sample index, and one seed per dimension to scramble it.</p>
+<p>This has two advantages over the hash-chain approach:</p>
+<ul>
+<li><strong>Robustness.</strong> You&rsquo;re relying on the statistical quality of a well-studied general-purpose PRNG (Mersenne Twister, Philox, etc.) to produce <em>D + 1</em> independent seeds.</li>
+<li><strong>No repeated hashing per sample.</strong> With independent precomputed seeds, each dimension&rsquo;s seed is a stored constant, looked up once per generator, rather than recomputed via <code>hash_combine</code> on every call.</li>
+</ul>
+<p>That said, this is a minor cost either way. Burley notes that the Laine–Karras/Owen step itself already dominates, and that jumping to arbitrary sample indices, rather than incrementing them, is the real performance bottleneck.</p>
+<p>The main drawback is that this approach still requires the same good old <strong>21,201-dimensional direction-vector table</strong> from Joe and Kuo. In contrast, the 4-by-4 approach only requires the tiny table for four dimensions and can go beyond 21,201 dimensions.</p>
+<p>Overall, Burley&rsquo;s 4-by-4 scrambling approach is remarkably self-contained and small.</p>
+<h2 id="permuting-over-232-or-over-2l">Permuting over \(2^{32}\) or over \(2^L\)?</h2>
+<p>When generating \(N = 2^L\) samples, should the shuffle be defined as a permutation of the full 32-bit index range \([0, 2^{32})\), or restricted to the \([0, 2^L)\) range actually being sampled?</p>
+<p>There is no theoretical gain in restricting the permutation to \(2^L\), and there is an important practical issue: the permutation would then become dependent on the number of draws \(2^L\).</p>
+<p>That is unacceptable. The first 1,024 numbers of a sequence of 2,048 samples should correspond to the sequence of 1,024 samples—not to a different permutation produced specifically for the shorter sequence.</p>
+<p>The shuffle should therefore be defined independently of the number of samples being drawn.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>Brent Burley, <a href="https://jcgt.org/published/0009/04/01/">&ldquo;Practical Hash-based Owen Scrambling&rdquo;</a>, <em>Journal of Computer Graphics Techniques</em>, vol. 9, no. 4, pp. 1–20, 2020.</li>
+<li>H. S. Hong and F. J. Hickernell, <a href="https://dl.acm.org/doi/10.1145/779359.779360">&ldquo;Algorithm 823: Implementing Scrambled Digital Sequences&rdquo;</a>, <em>ACM Transactions on Mathematical Software</em>, vol. 29, no. 2, pp. 95–109, 2003.</li>
+<li>J. Matoušek, &ldquo;On the L2-discrepancy for anchored boxes,&rdquo; <em>Journal of Complexity</em>, vol. 14, no. 4, pp. 527–556, 1998.</li>
+<li>Peter Caspers, <a href="https://quantlib.wordpress.com/2024/02/03/scrambled-sobol-sequences/">&ldquo;Scrambled Sobol Sequences&rdquo;</a>, <em>Fooling around with QuantLib</em>, Feb. 2024.</li>
+<li>QuantLib, <a href="https://github.com/lballabio/QuantLib"><code>Burley2020SobolRsg</code></a>.</li>
+<li>Fabien Le Floc&rsquo;h, <a href="https://chasethedevil.github.io/post/owen_scrambling_in_quantlib/">&ldquo;Owen Scrambling in Quantlib&rdquo;</a>, <em>Chase the Devil</em>, Dec. 2025.</li>
+</ol>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f&amp;text=Burley%20Scrambling%20Beyond%20the%20Fourth%20Dimension&amp;via=JherekHealy" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f&amp;title=Burley%20Scrambling%20Beyond%20the%20Fourth%20Dimension" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f&amp;title=Burley%20Scrambling%20Beyond%20the%20Fourth%20Dimension" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f&amp;title=Burley%20Scrambling%20Beyond%20the%20Fourth%20Dimension" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f&amp;description=Burley%20Scrambling%20Beyond%20the%20Fourth%20Dimension" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="mailto:?body=https%3a%2f%2fjherekhealy.github.io%2fblog%2fpost%2fburley_scrambling_beyond_the_fourth_dimension%2f&amp;subject=Burley%20Scrambling%20Beyond%20the%20Fourth%20Dimension" title="Share via email">
+          <i class="fab fa-at"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://jherekhealy.github.io/blog/post/open_source_quality/" data-toggle="tooltip" data-placement="top" title="Open Source Quality">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:jherekhealy@protonmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/JherekHealy" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://linkedin.com/in/jherek-healy-10bb08154" title="LinkedIn">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://jherekhealy.github.io">Jherek Healy</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://jherekhealy.github.io/blog/">Jherek&#39;s Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.165.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://jherekhealy.github.io/blog/js/katex.min.js"></script>
+<script defer src="https://jherekhealy.github.io/blog/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script src="https://jherekhealy.github.io/blog/js/jquery-3.7.0.slim.min.js"></script>
+<script src="https://jherekhealy.github.io/blog/js/bootstrap.min.js"></script>
+
+<script src="https://jherekhealy.github.io/blog/js/main.js"></script><script src="https://jherekhealy.github.io/blog/js/photoswipe.min.js"></script>
+<script src="https://jherekhealy.github.io/blog/js/photoswipe-ui-default.min.js"></script><script src="https://jherekhealy.github.io/blog/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
