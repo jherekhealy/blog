@@ -14,9 +14,16 @@
 		
 		
 		
-			<lastBuildDate>Mon, 24 Aug 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 25 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://jherekhealy.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Burley Scrambling Beyond the Fourth Dimension – The Return</title>
+				<link>https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension_part2/</link>
+				<pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate><author>jherekhealy@protonmail.com (Jherek Healy)</author>
+				<guid>https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension_part2/</guid>
+				<description>&lt;p&gt;Yesterday, I revisited how to extend Burley scrambling beyond four dimensions &lt;a href=&#34;https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension/&#34;&gt;see previous post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I favored the implementation suggested by Burley himself in his paper: padding by 4D blocks. I also presented an alternative construction, partly used in QuantLib, which relies on a classic high-dimensional direction-vector table and applies the Burley/Laine–Karras-based scrambling on top of it.&lt;/p&gt;&#xA;&lt;p&gt;The 4D-by-4D padding approach is attractive because it allows effectively unlimited dimensions while preserving good stratification within each 4D block.  However, I found examples where this “classic”  Burley implementation performs poorly.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Burley Scrambling Beyond the Fourth Dimension</title>
 				<link>https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension/</link>

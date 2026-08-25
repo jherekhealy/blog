@@ -217,6 +217,51 @@
           
           
             <article class="post-preview">
+    <a href="https://jherekhealy.github.io/blog/post/constraints-in-levenberg-marquardt-least-squares-optimization/">
+        <h2 class="post-title">Constraints in the Levenberg-Marquardt least-squares optimization</h2>
+        
+        <h3 class="post-subtitle">
+            The standard Levenberg-Marquardt (LM) optimizer does not support box constraints. We explore here two different approaches to add box constraints for a given unconstrained LM algorithm.
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 8, 2018
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>The standard Levenberg-Marquardt optimizer does not support box constraints. This is, for example the case for good MINPACK lmdif/lmder implementations that many optimization libraries use underneath. But in practice, it is often useful to limit the range of the variables, often because the objective might not be defined everywhere.</p>
+<p>The <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=2ahUKEwjjre3W8PfdAhUKzIUKHYSQDzgQFjAAegQIChAC&amp;url=https%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2Fminpack.lm%2Fminpack.lm.pdf&amp;usg=AOvVaw2GJL44QiM_VH1mbFXgHJDb">R minpack.lm CRAN package</a> allows the user to specify box constraints. How do they do it?</p>
+<p>They choose a very straightforward projection approach to enforce the constraints: if the guess is outside the box, they place it at the closest boundary (see <a href="https://github.com/cran/minpack.lm/blob/master/src/fcn_lmder.c">the source code</a>).
+I believe this corresponds to the algorithm described in section 3 of the paper <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjTod32x_ndAhVEUxoKHd5FBQYQFjAAegQICRAC&amp;url=https%3A%2F%2Fwww.mathematik.uni-wuerzburg.de%2F~kanzow%2Fpaper%2FCNSLMP.pdf&amp;usg=AOvVaw1Nx218K-rN8sf4veL3S1AH">Levenberg-Marquardt methods for constrained nonlinear equations with strong local convergence properties</a>.</p>
+        <a href="https://jherekhealy.github.io/blog/post/constraints-in-levenberg-marquardt-least-squares-optimization/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/state_of_convex_quadratic_programming_solvers/">
         <h2 class="post-title">The state of open-source quadratic programming convex optimizers</h2>
         

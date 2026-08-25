@@ -66,7 +66,7 @@ Before that paper, the standard reference for scrambling low-discrepancy sequenc
   "headline": "Burley Scrambling Beyond the Fourth Dimension",
   "description" : "Brent Burley, of Walt Disney Animation Studios, presented an excellent hash-based algorithm for implementing full Owen (nested uniform) scrambling of the Sobol sequence: Practical Hash-based Owen Scrambling, JCGT vol. 9, no. 4, 2020 [1].\nBefore that paper, the standard reference for scrambling low-discrepancy sequences was ACM Algorithm 823 by Hong and Hickernell [2], which is slower and only approximates Owen\u0026rsquo;s nested uniform scrambling. To keep memory and computation bounded, it uses Matoušek\u0026rsquo;s nested-linear approximation (affine permutations of the form A · x \u002b C mod b) rather than a fully independent random permutation at every node of the digit tree [3].\n",
   "inLanguage" : "en",
-  "wordCount":  941 ,
+  "wordCount":  987 ,
   "datePublished" : "2026-08-24T00:00:00\u002b00:00",
   "dateModified" : "2026-08-24T00:00:00\u002b00:00",
   "image" : "https:\/\/jherekhealy.github.io\/blog\/images\/avatar@2x.png",
@@ -325,18 +325,19 @@ Apply <code>nested_uniform_scramble_base2</code> again, this time to each of the
 <p>&ldquo;one merely needs to supply a different seed to each group of four dimensions&rdquo;</p>
 </blockquote>
 <p>In other words, for <em>D</em> dimensions, draw (D/4) independent random integers and use one seed for each group of four dimensions.</p>
-<p>This is essentially the approach taken in QuantLib&rsquo;s implementation of Burley&rsquo;s algorithm, <code>Burley2020SobolRsg</code>, contributed by Peter Caspers [4, 5].</p>
-<p>QuantLib generates its scrambling seeds from a Mersenne Twister at initialization time. The seeds are then fixed for the lifetime of the generator and used to key the Laine–Karras/nested-scramble step for the index shuffle and for each dimension.</p>
-<h2 id="an-independent-seed-per-dimension">An independent seed per dimension</h2>
-<p>A different approach, briefly described on the Chase the Devil blog [6], is to draw <strong>D + 1 independent random integers</strong> up front from an ordinary, well-tested PRNG: one seed to shuffle the sample index, and one seed per dimension to scramble it.</p>
+<p>This is essentially the approach taken in QuantLib&rsquo;s implementation of Burley&rsquo;s algorithm,</p>
+<h2 id="on-the-use-a-high-dimensional-direction-vector-table">On the use a high dimensional direction vector table</h2>
+<p>QuantLib <code>Burley2020SobolRsg</code>, contributed by Peter Caspers [4, 5], generates its scrambling seeds from a Mersenne Twister at initialization time. The seeds are then fixed for the lifetime of the generator and used to key the Laine–Karras/nested-scramble step for the index shuffle and for each dimension. But more importantly, it does not use padding but uses direction vectors in high dimension (e.g. from Joe and Kuo).</p>
+<p>A slightly different approach, briefly described on the Chase the Devil blog [6], is to draw <strong>D + 1 independent random integers</strong> up front from an ordinary, well-tested PRNG: one seed to shuffle the sample index, and one seed per dimension to scramble it.</p>
 <p>This has two advantages over the hash-chain approach:</p>
 <ul>
 <li><strong>Robustness.</strong> You&rsquo;re relying on the statistical quality of a well-studied general-purpose PRNG (Mersenne Twister, Philox, etc.) to produce <em>D + 1</em> independent seeds.</li>
 <li><strong>No repeated hashing per sample.</strong> With independent precomputed seeds, each dimension&rsquo;s seed is a stored constant, looked up once per generator, rather than recomputed via <code>hash_combine</code> on every call.</li>
 </ul>
 <p>That said, this is a minor cost either way. Burley notes that the Laine–Karras/Owen step itself already dominates, and that jumping to arbitrary sample indices, rather than incrementing them, is the real performance bottleneck.</p>
-<p>The main drawback is that this approach still requires the same good old <strong>21,201-dimensional direction-vector table</strong> from Joe and Kuo. In contrast, the 4-by-4 approach only requires the tiny table for four dimensions and can go beyond 21,201 dimensions.</p>
+<p>The main drawback of the high dimensional direction vector approach is to (of course) require the same good old <strong>21,201-dimensional direction-vector table</strong> from Joe and Kuo. In contrast, the 4-by-4 approach only requires the tiny table for four dimensions and can go beyond 21,201 dimensions.</p>
 <p>Overall, Burley&rsquo;s 4-by-4 scrambling approach is remarkably self-contained and small.</p>
+<p><strong>Update 2026/08/25</strong> Padding is fundamentally worse than the seed per dimension, see my <a href="/blog/post/burley_scrambling_beyond_the_fourth_dimension_part2/">next post</a>.</p>
 <h2 id="permuting-over-232-or-over-2l">Permuting over \(2^{32}\) or over \(2^L\)?</h2>
 <p>When generating \(N = 2^L\) samples, should the shuffle be defined as a permutation of the full 32-bit index range \([0, 2^{32})\), or restricted to the \([0, 2^L)\) range actually being sampled?</p>
 <p>There is no theoretical gain in restricting the permutation to \(2^L\), and there is an important practical issue: the permutation would then become dependent on the number of draws \(2^L\).</p>
@@ -433,6 +434,10 @@ Apply <code>nested_uniform_scramble_base2</code> again, this time to each of the
               <a href="https://jherekhealy.github.io/blog/post/open_source_quality/" data-toggle="tooltip" data-placement="top" title="Open Source Quality">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension_part2/" data-toggle="tooltip" data-placement="top" title="Burley Scrambling Beyond the Fourth Dimension – The Return">Next Post &rarr;</a>
+            </li>
           
         </ul>
       

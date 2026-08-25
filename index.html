@@ -217,6 +217,46 @@
           
           
             <article class="post-preview">
+    <a href="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension_part2/">
+        <h2 class="post-title">Burley Scrambling Beyond the Fourth Dimension – The Return</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 25, 2026
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p>Yesterday, I revisited how to extend Burley scrambling beyond four dimensions <a href="/blog/post/burley_scrambling_beyond_the_fourth_dimension/">see previous post</a>.</p>
+<p>I favored the implementation suggested by Burley himself in his paper: padding by 4D blocks. I also presented an alternative construction, partly used in QuantLib, which relies on a classic high-dimensional direction-vector table and applies the Burley/Laine–Karras-based scrambling on top of it.</p>
+<p>The 4D-by-4D padding approach is attractive because it allows effectively unlimited dimensions while preserving good stratification within each 4D block.  However, I found examples where this “classic”  Burley implementation performs poorly.</p>
+        <a href="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension_part2/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://jherekhealy.github.io/blog/post/burley_scrambling_beyond_the_fourth_dimension/">
         <h2 class="post-title">Burley Scrambling Beyond the Fourth Dimension</h2>
         
@@ -603,51 +643,6 @@ amplified in finite-difference based sensitivities based on the mean, reusing th
         
         <p>I was curious about using <a href="http://julialang.org">Julia</a>, mainly to access the <a href="http://arblib.org">Arb library</a> for arbitrary precision linear algebra. It is written by the author of Python <a href="http://mpmath.org/">mpmath</a> library, but its principle is quite different, and from the <a href="http://fredrikj.net/blog/2018/07/high-precision-linear-algebra-in-julia-bigfloat-vs-arb/">author&rsquo;s blog</a>, it is supposed to be much faster. Then, I also found python + numpy + scipy not so great at building large sparse matrices. It seemed relatively slow to me, numba does not work with scipy sparse matrices. Numba is in general not so nice to use, except to inline some very simple function. So I had previously thought of moving some of my code to Julia. Those remarks should be taken with a grain of salt, because I am no expert in numpy, scipy or numba.</p>
         <a href="https://jherekhealy.github.io/blog/post/rbf_collocation_of_2d_pde_and_precision/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://jherekhealy.github.io/blog/post/constraints-in-levenberg-marquardt-least-squares-optimization/">
-        <h2 class="post-title">Constraints in the Levenberg-Marquardt least-squares optimization</h2>
-        
-        <h3 class="post-subtitle">
-            The standard Levenberg-Marquardt (LM) optimizer does not support box constraints. We explore here two different approaches to add box constraints for a given unconstrained LM algorithm.
-        </h3>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on October 8, 2018
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Jherek Healy
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>The standard Levenberg-Marquardt optimizer does not support box constraints. This is, for example the case for good MINPACK lmdif/lmder implementations that many optimization libraries use underneath. But in practice, it is often useful to limit the range of the variables, often because the objective might not be defined everywhere.</p>
-<p>The <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=2ahUKEwjjre3W8PfdAhUKzIUKHYSQDzgQFjAAegQIChAC&amp;url=https%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2Fminpack.lm%2Fminpack.lm.pdf&amp;usg=AOvVaw2GJL44QiM_VH1mbFXgHJDb">R minpack.lm CRAN package</a> allows the user to specify box constraints. How do they do it?</p>
-<p>They choose a very straightforward projection approach to enforce the constraints: if the guess is outside the box, they place it at the closest boundary (see <a href="https://github.com/cran/minpack.lm/blob/master/src/fcn_lmder.c">the source code</a>).
-I believe this corresponds to the algorithm described in section 3 of the paper <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjTod32x_ndAhVEUxoKHd5FBQYQFjAAegQICRAC&amp;url=https%3A%2F%2Fwww.mathematik.uni-wuerzburg.de%2F~kanzow%2Fpaper%2FCNSLMP.pdf&amp;usg=AOvVaw1Nx218K-rN8sf4veL3S1AH">Levenberg-Marquardt methods for constrained nonlinear equations with strong local convergence properties</a>.</p>
-        <a href="https://jherekhealy.github.io/blog/post/constraints-in-levenberg-marquardt-least-squares-optimization/" class="post-read-more">[Read More]</a>
         
     </div>
 
